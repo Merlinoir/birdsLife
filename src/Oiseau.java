@@ -1,21 +1,24 @@
-
 public class Oiseau implements Volatile {
-private Volatile etat;
 
-@Override
-public void info() {
-  // etat de l'oiseau
-  System.out.println("je suis un " +this.etat);
-}
+	final static int VIE_MAX = 120;
+	private Volatile etat;
+	int positionX;
+	int positionY;
+	String sex;
+	
 
-public void eclore() {
-  etat=new Poussin();
-}
+	@Override
+	public void info() {
+		// etat de l'oiseau
+		System.out.println("je suis un " + this.etat);
+	}
 
-public Oiseau(){
-  etat=new Oeuf();
-}
+	public void eclore() {
+		etat = new Poussin();
+	}
 
-
+	public Oiseau() {
+		etat = new Oeuf();
+	}
 
 }
