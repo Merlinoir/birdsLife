@@ -7,4 +7,34 @@ public class Adulte implements Volatile {
     System.out.println("je suis un adulte");
   }
 
+  @Override
+  public void eclore() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void seDeplacer() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void seReproduire() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void mourir() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void adulte() {
+    // TODO Auto-generated method stub
+    
+  }
+
 }
