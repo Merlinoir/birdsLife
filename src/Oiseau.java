@@ -21,4 +21,28 @@ public class Oiseau implements Volatile {
 		etat = new Oeuf();
 	}
 
+  @Override
+  public void seDeplacer() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void seReproduire() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void mourir() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void adulte() {
+    // TODO Auto-generated method stub
+    
+  }
+
 }
