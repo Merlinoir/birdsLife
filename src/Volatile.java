@@ -9,4 +9,6 @@ public interface Volatile {
   public void mourir ();
   public void adulte();
   
+  // Vive KFC! Nous faisons bien le poulet!
+  
 }
