@@ -10,7 +10,7 @@ public class Oiseau implements Volatile {
 	
 
 	public void info() {
-		// Etat de l'oiseau
+		// Etat de l'oiseau 
 		System.out.println("je suis un " + this.etat);
 	}
 
