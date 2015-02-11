@@ -9,7 +9,7 @@ public class Oiseau implements Volatile {
 
 	@Override
 	public void info() {
-		// etat de l'oiseau
+		// Etat de l'oiseau
 		System.out.println("je suis un " + this.etat);
 	}
 
