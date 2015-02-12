@@ -4,14 +4,10 @@ public class Oiseau implements Volatile {
 	Volatile etat;
 	int positionX;
 	int positionY;
-<<<<<<< HEAD
 	Sex sonSexe;  // Enum
-=======
 	String sex;
 	Oiseau parent1;
 	Oiseau parent2;
-	
->>>>>>> ee10e68f95f95b67df5fabd55ce05cea2aaa6c76
 
 	public void info() {
 		// Etat de l'oiseau 

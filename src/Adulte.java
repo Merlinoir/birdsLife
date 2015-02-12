@@ -6,12 +6,6 @@ public class Adulte implements Volatile {
     // TODO Auto-generated method stub
     System.out.println("je suis un adulte");
   }
-
-<<<<<<< HEAD
-  
-  
-  
-
 	
 	// Verif pre Reproduction
 	// Premier test : SexeOpposé ?
@@ -24,10 +18,7 @@ public class Adulte implements Volatile {
 		
 		return true ;
 	}
-	
-	
 
-	
 	public boolean distanceProche(Oiseau o){
 		
 		return true;
@@ -47,14 +38,7 @@ public class Adulte implements Volatile {
 		
 		// 3eme point :
 		// On compare si la mere de l'oiseau cible est la mere de l'oiseau o ou de l'un de ses aieux !
-		// recursion
-		
-		
-		
-		
-		
-		
-		
+		// recursion		
 		
 		return true;
 	}
@@ -73,18 +57,7 @@ public class Adulte implements Volatile {
 	 * 
 	 * 
 	 */
-	
-	
-	
-	
-  
-  
-  
-  
-  
-  
-  
-=======
+
   public void seDeplacer() {
     // TODO Auto-generated method stub
     
@@ -95,5 +68,4 @@ public class Adulte implements Volatile {
     
   }
 
->>>>>>> ee10e68f95f95b67df5fabd55ce05cea2aaa6c76
 }
