@@ -9,6 +9,11 @@ public class Main {
     unOiseau.info();
     unOiseau.eclore();
     unOiseau.info();
+    
+    Sex unSexe = Sex.Femelle ;
+    
+    System.out.println(unSexe);
+    
   }
 
 }

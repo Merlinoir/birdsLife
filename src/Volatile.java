@@ -19,6 +19,5 @@ public abstract class Volatile {
  
   public void getPosition(){
   }
-  
-  
+ 
 }

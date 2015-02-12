@@ -1,11 +1,13 @@
 import java.awt.Point;
 
 public class Oiseau extends Volatile {
-  
-  Volatile etat;
+
+	final static int VIE_MAX = 120;
+	Sex sonSexe;  // Enum
+	Volatile etat;
   
 	public void info() {
-		// methode de test pour avoir l'état de l'oiseau
+		// Etat de l'oiseau 
 		System.out.println("je suis un " + this.etat);
 	}
 	
@@ -18,6 +20,11 @@ public class Oiseau extends Volatile {
 	public void eclore() {
 		etat=new Poussin();
 		
+	}
+
+	// Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
+	public boolean sexeOppose(Oiseau o){
+	return (this.sonSexe != o.sonSexe) ;
 	}
 	
   public void seDeplacer() {
