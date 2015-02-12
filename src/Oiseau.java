@@ -4,8 +4,7 @@ public class Oiseau implements Volatile {
 	private Volatile etat;
 	int positionX;
 	int positionY;
-	String sex;
-	
+	Sex sonSexe;  // Enum
 
 	@Override
 	public void info() {
@@ -19,6 +18,12 @@ public class Oiseau implements Volatile {
 
 	public Oiseau() {
 		etat = new Oeuf();
+	
 	}
+	// Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
+	public boolean sexeOppose(Oiseau o){
+	return (this.sonSexe != o.sonSexe) ;
+	}
+	
 
 }
