@@ -1,51 +1,46 @@
-public class Oiseau implements Volatile {
+import java.awt.Point;
+
+public class Oiseau extends Volatile {
 
 	final static int VIE_MAX = 120;
-	Volatile etat;
-	int positionX;
-	int positionY;
 	Sex sonSexe;  // Enum
-	String sex;
-	Oiseau parent1;
-	Oiseau parent2;
-
+	Volatile etat;
+  
 	public void info() {
 		// Etat de l'oiseau 
 		System.out.println("je suis un " + this.etat);
 	}
-
+	
+	//constructeur
+	public Oiseau() {
+    etat = new Oeuf();
+    Point p = new Point((int) Math.random(),0);
+  }
+	
 	public void eclore() {
 		etat=new Poussin();
+		
 	}
 
-	public Oiseau() {
-		etat = new Oeuf();
-	
-	}
 	// Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
 	public boolean sexeOppose(Oiseau o){
 	return (this.sonSexe != o.sonSexe) ;
 	}
 	
-
   public void seDeplacer() {
-    // TODO Auto-generated method stub
+    etat.seDeplacer();
     
   }
 
   public void seReproduire() {
-    // TODO Auto-generated method stub
+    etat.seReproduire();
     
   }
 
-  public void mourir() {
-    // TODO Auto-generated method stub
-    
-  }
- 
+  
   public void puberte() {
     etat = new Adulte();
     
   }
-
+  
 }

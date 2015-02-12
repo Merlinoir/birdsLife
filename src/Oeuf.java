@@ -1,4 +1,4 @@
-public class Oeuf implements Volatile {
+public class Oeuf extends Volatile {
 
   
   public void info() {
@@ -7,12 +7,11 @@ public class Oeuf implements Volatile {
   }
  
    public void seDeplacer() {
-    // TODO Auto-generated method stub
-    
-  }
+    // L'oeuf ne se déplace pas
+   }
 
   public void seReproduire() {
-    // TODO Auto-generated method stub
+    // L'oeuf ne se reproduit pas 
     
   }
 
