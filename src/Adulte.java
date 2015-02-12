@@ -7,6 +7,7 @@ public class Adulte implements Volatile {
     System.out.println("je suis un adulte");
   }
 
+<<<<<<< HEAD
   
   
   
@@ -83,4 +84,16 @@ public class Adulte implements Volatile {
   
   
   
+=======
+  public void seDeplacer() {
+    // TODO Auto-generated method stub
+    
+  }
+
+  public void seReproduire() {
+    // TODO Auto-generated method stub
+    
+  }
+
+>>>>>>> ee10e68f95f95b67df5fabd55ce05cea2aaa6c76
 }
