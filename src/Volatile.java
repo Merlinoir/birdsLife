@@ -1,11 +1,13 @@
 import java.awt.Point;
 
 public abstract class Volatile {
-  final static int VIE_MAX = 120;
+  long  duréeDeVie;
   String sex;
   Oiseau parent1;
   Oiseau parent2;
   Point position;
+  long age;
+  boolean estVivant;
   
   public void info(){
   }

@@ -15,6 +15,9 @@ public class Oiseau extends Volatile {
 	public Oiseau() {
     etat = new Oeuf();
     Point p = new Point((int) Math.random(),0);
+    calculerDuréeDeVie();
+    estVivant = true;
+    age = System.nanoTime();
   }
 	
 	public void eclore() {
@@ -41,6 +44,10 @@ public class Oiseau extends Volatile {
   public void puberte() {
     etat = new Adulte();
     
+  }
+  
+  protected void calculerDuréeDeVie(){
+	  duréeDeVie = (long) Math.random(); 
   }
   
 }
