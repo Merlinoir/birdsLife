@@ -20,5 +20,7 @@ public abstract class Volatile {
  
   public void getPosition(){
   }
- 
+
+  public void vieillir (){
+  }
 }
