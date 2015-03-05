@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Adulte extends Volatile {
 
@@ -20,20 +22,43 @@ public class Adulte extends Volatile {
          }
   }
 	
-	// Verif pre Reproduction
-	// Premier test : SexeOpposé ?
-	// Deuxième test : Distance proche
-	// Troisième test : Famille différente
+	// un chat cible se reproduit avec un autre chat en parametre
+	public Oiseau seReproduire (Oiseau autreParent)
+	{
+		ArrayList<Volatile> lesParents = new ArrayList<Volatile> ();
+		lesParents.add(autreParent);
+		lesParents.add(this);
+		return new Oiseau(lesParents); // Nouvel Oiseau avec ses Parents
+	}
+  
 	
+	// Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
+	public ArrayList<Volatile> aPourAncetres(int niveau) {
+		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
+		
+		if (niveau==1) { 
+			listAncetres.addAll(this.getListeParents());
+			return listAncetres ;
+		}
+		else{
+			for ( Volatile unParent : listeParents ){
+				listAncetres.addAll( unParent.aPourAncetres(niveau-1));
+			}
+		}
+		return listAncetres;
+	}
+	// Creer la meme methode mais sans parametres pour retourner
+	// la liste des parents sans limite de remontee
+	
+	
+
+	// Methodes de controle :
 	public boolean reproduction(Oiseau o){
 		// On ignore si un oiseau est mort.
-		
-		
 		return true ;
 	}
 
 	public boolean distanceProche(Oiseau o){
-		
 		return true;
 	}
 	

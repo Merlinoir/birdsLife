@@ -13,6 +13,13 @@ public class Main {
     Sex unSexe = Sex.Femelle ;
     
     System.out.println(unSexe);
+
+    
+	// Verif pre Reproduction
+	// Premier test : SexeOpposé ?
+	// Deuxième test : Distance proche
+	// Troisième test : Famille différente
+    
     
   }
 
