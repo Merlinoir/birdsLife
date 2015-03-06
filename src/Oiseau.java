@@ -1,4 +1,6 @@
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Oiseau extends Volatile {
@@ -27,6 +29,14 @@ public class Oiseau extends Volatile {
     age = System.nanoTime();
 
   }
+	public Oiseau(List<Volatile> parents) {
+	    etat = new Oeuf();
+	    Point p = new Point((int) Math.random(),0);
+	    listeParents = parents;
+	}
+	
+	
+	// Changement d'etat :
 	
 	public void eclore() {
 		etat=new Poussin();
@@ -40,21 +50,24 @@ public class Oiseau extends Volatile {
 	
   public void seDeplacer() {
     etat.seDeplacer();
-    
   }
 
-  public void seReproduire() {
-    etat.seReproduire();
-    
+  public Oiseau seReproduire(Oiseau autreparent) {
+    etat.seReproduire(null);
+    return null ;
   }
 
+	public ArrayList<Volatile> aPourAncetres(int niveauParente) {
+		// retourne une liste d'ancetres avec en paramètres le degré de parenté
+		return null;
+	}
   
   public void puberte() {
     etat = new Adulte();
     
   }
   
-  protected void calculerDur�eDeVie(){
+  protected void calculerDureeDeVie(){
 	  this.dureeDeVie = (long) Math.random(); 
   }
   
