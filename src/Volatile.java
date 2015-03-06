@@ -28,12 +28,39 @@ final static int VIE_MAX = 120;
 	  return null ;
   }
  
-	public ArrayList<Volatile> aPourAncetres(int niveauParente) {
-		// retourne une liste d'ancetres avec en paramètres le degré de parenté
-		return null;
+	// Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
+	public ArrayList<Volatile> aPourAncetres(int niveau) {
+		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
+		
+		if (niveau==1) { 
+			listAncetres.addAll(this.getListeParents());
+			return listAncetres ;
+		}
+		else{
+			for ( Volatile unParent : listeParents ){
+				listAncetres.addAll( unParent.aPourAncetres(niveau-1));
+			}
+		}
+		return listAncetres;
+	}
+	
+	// Récupérer dans une liste tous les Ancetres d'un Volatile :
+	
+	public ArrayList<Volatile> tousLesAncetres() {
+		// Initialise la liste a retourner :
+		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
+		// Ajout des parents de la cible à la liste des ancetres.
+		if (!listeParents.isEmpty()) {
+			listAncetres.addAll(this.getListeParents());
+		}
+		// Boucle foreach sur la liste de ses parents pour appel recursif
+		for ( Volatile unParent : listeParents ){
+				unParent.tousLesAncetres();
+		}
+		return listAncetres;
 	}
   
-  
+
   public void getPosition(){
   }
   

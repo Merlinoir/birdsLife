@@ -22,7 +22,7 @@ public class Adulte extends Volatile {
          }
   }
 	
-	// un chat cible se reproduit avec un autre chat en parametre
+	// un oiseau cible se reproduit avec un autre oiseau en parametre
 	public Oiseau seReproduire (Oiseau autreParent)
 	{
 		ArrayList<Volatile> lesParents = new ArrayList<Volatile> ();
@@ -33,6 +33,9 @@ public class Adulte extends Volatile {
   
 	
 	// Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
+	// degré de parenté 1 : Freres Soeurs
+	// degré de parenté 2 : Cousins Cousines
+	// degré de parenté 3 : Cousins germains...
 	public ArrayList<Volatile> aPourAncetres(int niveau) {
 		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
 		
@@ -47,9 +50,11 @@ public class Adulte extends Volatile {
 		}
 		return listAncetres;
 	}
-	// Creer la meme methode mais sans parametres pour retourner
-	// la liste des parents sans limite de remontee
+
 	
+	public ArrayList<Volatile> tousLesAncetres() {
+		return null;
+	}
 	
 
 	// Methodes de controle :
