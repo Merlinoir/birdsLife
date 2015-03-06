@@ -1,4 +1,5 @@
 import java.awt.Point;
+import java.util.Random;
 
 public class Oiseau extends Volatile {
 
@@ -14,7 +15,10 @@ public class Oiseau extends Volatile {
 	//constructeur
 	public Oiseau() {
     etat = new Oeuf();
-    Point p = new Point((int) Math.random(),0);
+    Random rand = new Random();
+    int x= rand.nextInt(100);
+    int y = 0;
+    position = new Point(x,y);
   }
 	
 	public void eclore() {
