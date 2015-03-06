@@ -1,12 +1,17 @@
 import java.awt.Point;
 
 public abstract class Volatile {
-  final static int VIE_MAX = 120;
+  long  dureeDeVie;
   String sex;
   Oiseau parent1;
   Oiseau parent2;
   Point position;
+
   protected Univers monUnivers;
+
+  long age;
+  boolean estVivant;
+
   
   public void info(){
   }
@@ -20,9 +25,14 @@ public abstract class Volatile {
   public void getPosition(){
   }
 
+
   public void setUnivert(Univers univers) {
     monUnivers = univers;
     
   }
  
+
+  public void vieillir (){
+  }
+
 }

@@ -15,10 +15,17 @@ public class Oiseau extends Volatile {
 	//constructeur
 	public Oiseau() {
     etat = new Oeuf();
+
     Random rand = new Random();
     int x= rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
+
+  
+    calculerDureeDeVie();
+    estVivant = true;
+    age = System.nanoTime();
+
   }
 	
 	public void eclore() {
@@ -26,7 +33,7 @@ public class Oiseau extends Volatile {
 		
 	}
 
-	// Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
+	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
 	public boolean sexeOppose(Oiseau o){
 	return (this.sonSexe != o.sonSexe) ;
 	}
@@ -45,6 +52,10 @@ public class Oiseau extends Volatile {
   public void puberte() {
     etat = new Adulte();
     
+  }
+  
+  protected void calculerDureeDeVie(){
+	  dureeDeVie = (long) Math.random(); 
   }
   
 }

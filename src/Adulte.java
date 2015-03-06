@@ -29,10 +29,7 @@ public class Adulte extends Volatile {
 		
 		return true ;
 	}
-	
-	
 
-	
 	public boolean distanceProche(Oiseau o){
 		
 		return true;
@@ -52,14 +49,7 @@ public class Adulte extends Volatile {
 		
 		// 3eme point :
 		// On compare si la mere de l'oiseau cible est la mere de l'oiseau o ou de l'un de ses aieux !
-		// recursion
-		
-		
-		
-		
-		
-		
-		
+		// recursion		
 		
 		return true;
 	}
