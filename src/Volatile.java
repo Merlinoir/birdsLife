@@ -4,11 +4,11 @@ import java.util.List;
 
 public abstract class Volatile {
 
-
-final static int VIE_MAX = 120;
+  long  dureeDeVie;
   String sex;
   List<Volatile> listeParents;
   Point position;
+
   
   // Getter Setter Parent :
 	public List<Volatile> getListeParents() {
@@ -17,6 +17,13 @@ final static int VIE_MAX = 120;
 	public void setListeParents(List<Volatile> listeParents) {
 		this.listeParents = listeParents;
 	}
+
+
+  protected Univers monUnivers;
+
+  long age;
+  boolean estVivant;
+
   
   public void info(){
   }
@@ -64,7 +71,18 @@ final static int VIE_MAX = 120;
   public void getPosition(){
   }
   
-  
-  
- 
+  public void kill(){
+	  this.estVivant = false;
+  }
+
+  public void vieillir(long t){
+	  this.age = this.age + t ;
+	  if (this.age >= this.dureeDeVie){
+		  this.kill();}  }
+
+  public void setUnivert(Univers univers) {
+    monUnivers = univers;
+    
+  }
+
 }
