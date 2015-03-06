@@ -47,7 +47,7 @@ public class Oiseau extends Volatile {
   }
   
   protected void calculerDuréeDeVie(){
-	  duréeDeVie = (long) Math.random(); 
+	  this.dureeDeVie = (long) Math.random(); 
   }
   
 }

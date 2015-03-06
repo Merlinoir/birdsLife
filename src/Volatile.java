@@ -1,7 +1,7 @@
 import java.awt.Point;
 
 public abstract class Volatile {
-  long  duréeDeVie;
+  long  dureeDeVie;
   String sex;
   Oiseau parent1;
   Oiseau parent2;
@@ -20,7 +20,15 @@ public abstract class Volatile {
  
   public void getPosition(){
   }
+  
+  public void kill(){
+	  this.estVivant = false;
+  }
 
-  public void vieillir (){
+  public void vieillir(long t){
+	  this.age = this.age + t ;
+	  if (this.age >= this.dureeDeVie){
+		  this.kill();
+	  }
   }
 }
