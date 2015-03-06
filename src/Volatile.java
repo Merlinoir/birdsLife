@@ -6,8 +6,12 @@ public abstract class Volatile {
   Oiseau parent1;
   Oiseau parent2;
   Point position;
+
+  protected Univers monUnivers;
+
   long age;
   boolean estVivant;
+
   
   public void info(){
   }
@@ -30,5 +34,10 @@ public abstract class Volatile {
 	  if (this.age >= this.dureeDeVie){
 		  this.kill();
 	  }
+
+  public void setUnivert(Univers univers) {
+    monUnivers = univers;
+    
   }
+
 }

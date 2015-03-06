@@ -7,17 +7,20 @@ public class Poussin extends Volatile {
     System.out.println("je suis un poussin");
   }
 
-  public void seDeplacer() {
-    // Le poussin a un déplacment limité y=0
+  public void seDeplacer(long t) {
+    // Le poussin a un déplacement limité y=0
+    if (this.position.x < monUnivers. MAX_UNIVERS_ABSCISSE) {
+        this.position.setLocation(this.position.getX() +1, 0.d);
+        //si j'atteinds la limite droite, je repars à gauche
+    } else if (this.position.x < monUnivers. MAX_UNIVERS_ABSCISSE) {
+        this.position.setLocation(this.position.getX() -1, 0.d);
+        //si j'atteinds la limite gauche, je repars à droite
+        this.position.setLocation(this.position.getX() +1, 0.d);
+      }
+  }
 
-    while (true) {
- //     this.position.move((int) Math.random(),0);
+    public void seReproduire() {
+      // Le poussin ne se reproduit pas
     }
 
   }
-
-  public void seReproduire() {
-    // Le poussin ne se reproduit pas
-  }
-
-}
