@@ -27,6 +27,7 @@ public class Oiseau extends Volatile {
     calculerDureeDeVie();
     estVivant = true;
     age = System.nanoTime();
+    
   }
 
 	public Oiseau(List<Volatile> parents) {
@@ -39,8 +40,8 @@ public class Oiseau extends Volatile {
 	// Changement d'etat :
 	
 	public void eclore() {
-		etat=new Poussin();
-		vitesse = 1; //1 unité par seconde
+		etat=new Poussin(position);
+		
 	}
 
 	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
@@ -49,11 +50,15 @@ public class Oiseau extends Volatile {
 	}
 	
 
-  public void seDeplacer(long temps) {
-    etat.seDeplacer(temps);
+  public void seDeplacer(long tempsEnSeconde) {
+    etat.seDeplacer(tempsEnSeconde);
     
   }
 
+  public void setPosition(double i, double j) {
+    this.etat.position.setLocation(i, j);
+  }
+  
   public Oiseau seReproduire(Oiseau autreparent) {
     etat.seReproduire(null);
     return null ;
@@ -65,8 +70,7 @@ public class Oiseau extends Volatile {
 	}
   
   public void puberte() {
-    etat = new Adulte();
-    
+    etat = new Adulte();    
   }
   
   protected void calculerDureeDeVie(){

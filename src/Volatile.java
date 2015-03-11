@@ -91,14 +91,13 @@ public abstract class Volatile {
 		  this.kill();
 	  }
   }
+//  public void setUnivers(Univers univers) {
+//		  this.kill();
+//		 
+//  
+//  }
+
   public void setUnivers(Univers univers) {
-		  this.kill();
-		 
-  
-  }
-
-  public void setUnivert(Univers univers) {
-
     monUnivers = univers;
     
   }
