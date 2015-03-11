@@ -10,6 +10,8 @@ public class testSeDeplacer {
   @Test
   //Test pour un déplacement d'une seconde
   public void testSeDeplacerUneSeconde() {
+    //creer un univers
+    Univers univers = new Univers ();
     Oiseau cuicui= new Oiseau();
     cuicui.eclore();
     //j'impose à cuicui une position   OK

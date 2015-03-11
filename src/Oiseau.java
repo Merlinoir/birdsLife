@@ -22,14 +22,13 @@ public class Oiseau extends Volatile {
     int x= rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
+    
     vitesse =0;
-
-  
     calculerDureeDeVie();
     estVivant = true;
     age = System.nanoTime();
-
   }
+
 	public Oiseau(List<Volatile> parents) {
 	    etat = new Oeuf();
 	    Point p = new Point((int) Math.random(),0);
