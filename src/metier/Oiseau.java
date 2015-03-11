@@ -1,3 +1,4 @@
+package metier;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +7,8 @@ import java.util.Random;
 public class Oiseau extends Volatile {
 
 	final static int VIE_MAX = 60;
-	final static int SEUIL_POUSSIN = 5;
-	final static int SEUIL_ADULTE = 20;
+	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
+	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
 	Sex sonSexe;  // Enum
 	Volatile etat;
   
@@ -75,7 +76,7 @@ public class Oiseau extends Volatile {
   }
   
   protected void calculerDureeDeVie(){
-	  this.dureeDeVie = Math.pow((Math.random() * (VIE_MAX-1)) + 1, 9) ;
+	  this.dureeDeVie = (Math.random() * (VIE_MAX-1)) + 1 * Math.pow(10, 9) ;
   }
 
   
@@ -85,14 +86,30 @@ public class Oiseau extends Volatile {
   }
   
   public void vieillir(){
-	  if (this.calculerAge() >=  Math.pow(SEUIL_POUSSIN, 9)){
+	  if (this.calculerAge() >=  SEUIL_POUSSIN){
 		  this.eclore();
 	  }
-	  if (this.calculerAge() >= Math.pow(SEUIL_ADULTE, 9)){
+	  if (this.calculerAge() >= SEUIL_ADULTE){
 		  this.puberte();
 	  }
 	  if (this.calculerAge() >= this.dureeDeVie){
 		  this.kill();
 		  }  
 	  }
+
+  public Sex getSonSexe() {
+	  return sonSexe;
+  }
+
+  public void setSonSexe(Sex sonSexe) {
+	this.sonSexe = sonSexe;
+  }
+
+  public Volatile getEtat() {
+	return etat;
+  }
+
+  public void setEtat(Volatile etat) {
+	this.etat = etat;
+  }
 }

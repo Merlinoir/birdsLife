@@ -1,3 +1,4 @@
+package metier;
 import java.awt.Point;
 
 
