@@ -6,9 +6,8 @@ public abstract class Volatile {
   Oiseau parent1;
   Oiseau parent2;
   Point position;
-
+  long vitesse;
   protected Univers monUnivers;
-
   long age;
   boolean estVivant;
 
@@ -16,13 +15,21 @@ public abstract class Volatile {
   public void info(){
   }
  
-  public void seDeplacer(){
+  public void seDeplacer(long tempsEnSeconde){
+    //quelle unité de temps choisir???
+    
   }
   
   public void seReproduire(){
   }
  
-  public void getPosition(){
+  public Point getLocation(){
+    return position;
+  }
+  
+
+  public void setPosition(double i, double j) {
+        this.position.setLocation(i, j);
   }
   
   public void kill(){
@@ -34,8 +41,8 @@ public abstract class Volatile {
 	  if (this.age >= this.dureeDeVie){
 		  this.kill();
 	  }
-
-  public void setUnivert(Univers univers) {
+  }
+  public void setUnivers(Univers univers) {
     monUnivers = univers;
     
   }

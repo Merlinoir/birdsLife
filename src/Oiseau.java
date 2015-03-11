@@ -20,6 +20,7 @@ public class Oiseau extends Volatile {
     int x= rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
+    vitesse =0;
 
   
     calculerDureeDeVie();
@@ -30,7 +31,7 @@ public class Oiseau extends Volatile {
 	
 	public void eclore() {
 		etat=new Poussin();
-		
+		vitesse = 1; //1 unité par seconde
 	}
 
 	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
@@ -38,8 +39,8 @@ public class Oiseau extends Volatile {
 	return (this.sonSexe != o.sonSexe) ;
 	}
 	
-  public void seDeplacer() {
-    etat.seDeplacer();
+  public void seDeplacer(long temps) {
+    etat.seDeplacer(temps);
     
   }
 
@@ -54,8 +55,9 @@ public class Oiseau extends Volatile {
     
   }
   
-  protected void calculerDur�eDeVie(){
+  protected void calculerDureeDeVie(){
 	  this.dureeDeVie = (long) Math.random(); 
   }
+
   
 }
