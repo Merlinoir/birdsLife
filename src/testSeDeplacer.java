@@ -11,9 +11,9 @@ public class testSeDeplacer {
   //Test pour un déplacement d'une seconde
   public void testSeDeplacerUneSeconde() {
     //creer un univers
-    Univers univers = new Univers ();
+    Univers monUnivers = new Univers ();
     Oiseau cuicui= new Oiseau();
-    univers.addVolatile(cuicui);
+    monUnivers.addVolatile(cuicui);
     cuicui.eclore();
     //j'impose à cuicui une position   OK
     cuicui.setPosition(1.0,0.0);

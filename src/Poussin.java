@@ -6,11 +6,12 @@ public class Poussin extends Volatile {
 
   private boolean droite = true;
 
-  public Poussin (Point laOuLOiseauEtait)
+  public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau)
   {
      System.out.println("je cree un poussin");
      position = laOuLOiseauEtait;
      vitesse = 1;
+     monUnivers = lUnivertDeLOiseau;
      
   }
   @Override

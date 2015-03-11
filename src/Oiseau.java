@@ -40,7 +40,7 @@ public class Oiseau extends Volatile {
 	// Changement d'etat :
 	
 	public void eclore() {
-		etat=new Poussin(position);
+		etat=new Poussin(position,monUnivers);
 		
 	}
 
