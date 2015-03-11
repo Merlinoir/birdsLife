@@ -26,7 +26,7 @@ public class Oiseau extends Volatile {
   
     calculerDureeDeVie();
     estVivant = true;
-    age = System.nanoTime();
+    dateNaissance = System.nanoTime();
 
   }
 	public Oiseau(List<Volatile> parents) {
@@ -68,7 +68,23 @@ public class Oiseau extends Volatile {
   }
   
   protected void calculerDureeDeVie(){
-	  this.dureeDeVie = (long) Math.random(); 
+	  this.dureeDeVie = Math.pow((Math.random() * (60-1)) + 1, 9) ;
   }
   
+  protected long calculerAge(){
+	long difference = System.nanoTime() - this.dateNaissance;
+	return difference;  
+  }
+  
+  public void vieillir(){
+	  if (this.calculerAge() >=  Math.pow(5, 9)){
+		  this.eclore();
+	  }
+	  if (this.calculerAge() >= Math.pow(20, 9)){
+		  this.puberte();
+	  }
+	  if (this.calculerAge() >= this.dureeDeVie){
+		  this.kill();
+		  }  
+	  }
 }

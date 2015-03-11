@@ -4,10 +4,13 @@ import java.util.List;
 
 public abstract class Volatile {
 
-  long  dureeDeVie;
+  double dureeDeVie;
   String sex;
   List<Volatile> listeParents;
   Point position;
+  long dateNaissance;
+  boolean estVivant;
+  protected Univers monUnivers;
 
   
   // Getter Setter Parent :
@@ -18,22 +21,16 @@ public abstract class Volatile {
 		this.listeParents = listeParents;
 	}
 
-
-  protected Univers monUnivers;
-
-  long age;
-  boolean estVivant;
-
   
-  public void info(){
-  }
+	public void info(){
+	}
  
-  public void seDeplacer(){
-  }
+	public void seDeplacer(){
+	}
   
-  public Oiseau seReproduire(Oiseau autreParent){
+	public Oiseau seReproduire(Oiseau autreParent){
 	  return null ;
-  }
+	}
  
 	// Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
 	public ArrayList<Volatile> aPourAncetres(int niveau) {
@@ -74,11 +71,6 @@ public abstract class Volatile {
   public void kill(){
 	  this.estVivant = false;
   }
-
-  public void vieillir(long t){
-	  this.age = this.age + t ;
-	  if (this.age >= this.dureeDeVie){
-		  this.kill();}  }
 
   public void setUnivert(Univers univers) {
     monUnivers = univers;

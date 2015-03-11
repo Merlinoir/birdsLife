@@ -13,7 +13,6 @@ public class Main {
     Sex unSexe = Sex.Femelle ;
     
     System.out.println(unSexe);
-    
   }
 
 }
