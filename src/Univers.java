@@ -8,10 +8,17 @@ public class Univers {
   final int MAX_UNIVERS_ORDONNEES = 100;
   List<Volatile> laColonie = new ArrayList<Volatile> ();
   
+
+  public Univers(){
+  }
+
   
+
   public void addVolatile (Volatile vola)
   {
     laColonie.add(vola);
     vola.setUnivers(this);
   }
+  
+  
 }
