@@ -5,7 +5,9 @@ import java.util.Random;
 
 public class Oiseau extends Volatile {
 
-	final static int VIE_MAX = 120;
+	final static int VIE_MAX = 60;
+	final static int SEUIL_POUSSIN = 5;
+	final static int SEUIL_ADULTE = 20;
 	Sex sonSexe;  // Enum
 	Volatile etat;
   
@@ -73,7 +75,7 @@ public class Oiseau extends Volatile {
   }
   
   protected void calculerDureeDeVie(){
-	  this.dureeDeVie = Math.pow((Math.random() * (60-1)) + 1, 9) ;
+	  this.dureeDeVie = Math.pow((Math.random() * (VIE_MAX-1)) + 1, 9) ;
   }
 
   
@@ -83,10 +85,10 @@ public class Oiseau extends Volatile {
   }
   
   public void vieillir(){
-	  if (this.calculerAge() >=  Math.pow(5, 9)){
+	  if (this.calculerAge() >=  Math.pow(SEUIL_POUSSIN, 9)){
 		  this.eclore();
 	  }
-	  if (this.calculerAge() >= Math.pow(20, 9)){
+	  if (this.calculerAge() >= Math.pow(SEUIL_ADULTE, 9)){
 		  this.puberte();
 	  }
 	  if (this.calculerAge() >= this.dureeDeVie){
