@@ -1,3 +1,5 @@
+import static org.junit.Assert.*;
+
 import java.awt.Point;
 
 import org.junit.Test;
@@ -9,13 +11,14 @@ public class testSeDeplacer {
   //Test pour un déplacement d'une seconde
   public void testSeDeplacerUneSeconde() {
     Oiseau cuicui= new Oiseau();
+    cuicui.eclore();
     //j'impose à cuicui une position   OK
     cuicui.setPosition(1.0,0.0);
-    System.out.println(cuicui.position);
+    //System.out.println(cuicui.position);*/
     
     //je crée un nex point où l'oiseau devrait etre en 1 seconde (x+1)
-    Point newPosition = new Point ();
-    newPosition.setLocation(2.0,0.0);
+    Point newPosition = new Point (2,0);
+  //  newPosition.setLocation(2.0,0.0);
     System.out.println("newPosition imposée : " + newPosition);
 
     //je fais se déplacer l'oiseau d'une seconde
@@ -26,7 +29,9 @@ public class testSeDeplacer {
     System.out.println(" la position de cuicui :" + cuicui.position); //il n'a pas bougé !!!!
     
     //je verifie si l'oiseau est là où il devrait etre
-    assert(cuicui.getLocation() == newPosition);
+    //AssertTrue
+    assertTrue(cuicui.getLocation().equals(newPosition));
+ //   assert();
    
   }
   

@@ -9,10 +9,11 @@ public class Poussin extends Volatile {
   }
 
   public void seDeplacer(long tempsEnSeconde) {
+    //creer un attribut qui le fait aller à droite.lorsqu'il atteint la limite de l'univers, il va à gauche l'attribut change de sens
     // Le poussin a un déplacement limité y=0
     if (this.position.x < monUnivers. MAX_UNIVERS_ABSCISSE) {
         this.position.setLocation((this.position.x+(tempsEnSeconde*vitesse)), 0.d);
-        System.out.println("methode sedeplacerpoussin : "+ this.position);
+        System.out.println("methode seDeplacerPoussin : "+ this.position);
         //si j'atteinds la limite droite, je repars à gauche
     } else if (this.position.x > monUnivers. MIN_UNIVERS_ABSCISSE) {
         this.position.setLocation((this.position.getX() -(tempsEnSeconde*vitesse)), 0.d);
