@@ -12,9 +12,8 @@ public abstract class Volatile {
   boolean estVivant;
   protected Univers monUnivers;
   long vitesse;
-  protected Univers monUnivers;
   long age;
-  boolean estVivant;
+ 
 
 
   // Getter Setter Parent :
