@@ -8,12 +8,24 @@ public abstract class Volatile {
 
 	double dureeDeVie;
 	String sex;
+	final double ZONE_DE_REPRODUCTION = 20 ;
 	List<Volatile> listeParents;
 	Point position;
 	long dateNaissance;
 	boolean estVivant;
 	protected Univers monUnivers;
 	long vitesse;
+
+	public boolean estProche(Oiseau p_oiseau) {
+		double ecartX;
+		double ecartY;
+		double distance;
+		ecartX = Math.pow((p_oiseau.position.getX() - this.position.getX()), 2);
+		ecartY = Math.pow((p_oiseau.position.getY() - this.position.getY()), 2);
+		distance = Math.sqrt(ecartX + ecartY);
+		// racine((x2-x1) au carré + (y2-y1) au carré)
+		return (distance <= ZONE_DE_REPRODUCTION);
+	}
 
 	// Getter Setter Parent :
 	public List<Volatile> getListeParents() {
