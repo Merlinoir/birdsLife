@@ -22,13 +22,13 @@ public class Oiseau extends Volatile {
     int x= rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
-
-  
+    
+    vitesse =0;
     calculerDureeDeVie();
     estVivant = true;
     dateNaissance = System.nanoTime();
-
   }
+
 	public Oiseau(List<Volatile> parents) {
 	    etat = new Oeuf();
 	    Point p = new Point((int) Math.random(),0);
@@ -39,7 +39,7 @@ public class Oiseau extends Volatile {
 	// Changement d'etat :
 	
 	public void eclore() {
-		etat=new Poussin();
+		etat=new Poussin(position,monUnivers);
 		
 	}
 
@@ -48,10 +48,16 @@ public class Oiseau extends Volatile {
 	return (this.sonSexe != o.sonSexe) ;
 	}
 	
-  public void seDeplacer() {
-    etat.seDeplacer();
+
+  public void seDeplacer(long tempsEnSeconde) {
+    etat.seDeplacer(tempsEnSeconde);
+    
   }
 
+  public void setPosition(double i, double j) {
+    this.etat.position.setLocation(i, j);
+  }
+  
   public Oiseau seReproduire(Oiseau autreparent) {
     etat.seReproduire(null);
     return null ;
@@ -63,13 +69,13 @@ public class Oiseau extends Volatile {
 	}
   
   public void puberte() {
-    etat = new Adulte();
-    
+    etat = new Adulte();    
   }
   
   protected void calculerDureeDeVie(){
 	  this.dureeDeVie = Math.pow((Math.random() * (60-1)) + 1, 9) ;
   }
+
   
   protected long calculerAge(){
 	long difference = System.nanoTime() - this.dateNaissance;

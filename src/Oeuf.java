@@ -6,10 +6,11 @@ public class Oeuf extends Volatile {
     System.out.println("je suis un oeuf");
   }
  
-   public void seDeplacer() {
+   @Override
+   public void seDeplacer(long tempsEnSeconde) {
     // L'oeuf ne se déplace pas
    }
-
+  
   public void seReproduire() {
     // L'oeuf ne se reproduit pas 
     

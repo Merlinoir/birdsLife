@@ -8,6 +8,9 @@ public class Main {
     Oiseau unOiseau = new Oiseau();
     unOiseau.info();
     unOiseau.eclore();
+    
+    unOiseau.seDeplacer(2);
+    
     unOiseau.info();
     
     Sex unSexe = Sex.Femelle ;
