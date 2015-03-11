@@ -4,17 +4,15 @@ import java.util.List;
 
 public abstract class Volatile {
 
-  long  dureeDeVie;
+  double dureeDeVie;
   String sex;
   final double ZONE_DE_REPRODUCTION = 20 ;
   List<Volatile> listeParents;
   Point position;
-
-  long vitesse;
-
-  protected Univers monUnivers;
-  long age;
+  long dateNaissance;
   boolean estVivant;
+  protected Univers monUnivers;
+  long vitesse;
 
   public boolean estProche(Oiseau p_oiseau){
 	  double ecartX ;
@@ -34,19 +32,18 @@ public abstract class Volatile {
   public void setListeParents(List<Volatile> listeParents) {
     this.listeParents = listeParents;
   }
-
   
-  public void info(){
-  }
+	public void info(){
+	}
  
   public void seDeplacer(long tempsEnSeconde){
     //quelle unité de temps choisir???
     
   }
   
-  public Oiseau seReproduire(Oiseau autreParent){
+	public Oiseau seReproduire(Oiseau autreParent){
 	  return null ;
-  }
+	}
  
   public Point getLocation(){
     return position;
@@ -94,22 +91,14 @@ public abstract class Volatile {
   public void kill(){
 	  this.estVivant = false;
   }
-
-  public void vieillir(long t){
-	  this.age = this.age + t ;
-	  if (this.age >= this.dureeDeVie){
-
-		  this.kill();
-	  }
-  }
-  public void setUnivers(Univers univers) {
-		  this.kill();
-		 
   
-  }
+//  public void setUnivers(Univers univers) {
+//		  this.kill();
+//		 
+//  
+//  }
 
-  public void setUnivert(Univers univers) {
-
+  public void setUnivers(Univers univers) {
     monUnivers = univers;
     
   }
