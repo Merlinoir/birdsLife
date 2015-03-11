@@ -1,12 +1,11 @@
-package metier;
+package test;
 import static org.junit.Assert.*;
-
 import java.awt.Point;
-
 import org.junit.Test;
+import metier.*;
 
 
-public class testSeDeplacer {
+public class TestSeDeplacer {
 
   @Test
   //Test pour un déplacement d'une seconde
