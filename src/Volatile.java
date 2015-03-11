@@ -9,32 +9,44 @@ public abstract class Volatile {
   List<Volatile> listeParents;
   Point position;
 
-  
-  // Getter Setter Parent :
-	public List<Volatile> getListeParents() {
-			return listeParents;
-	}
-	public void setListeParents(List<Volatile> listeParents) {
-		this.listeParents = listeParents;
-	}
-
+  long vitesse;
 
   protected Univers monUnivers;
-
   long age;
   boolean estVivant;
+
+
+  // Getter Setter Parent :
+  public List<Volatile> getListeParents() {
+      return listeParents;
+  }
+  public void setListeParents(List<Volatile> listeParents) {
+    this.listeParents = listeParents;
+  }
 
   
   public void info(){
   }
  
-  public void seDeplacer(){
+  public void seDeplacer(long tempsEnSeconde){
+    //quelle unité de temps choisir???
+    
   }
   
   public Oiseau seReproduire(Oiseau autreParent){
 	  return null ;
   }
  
+  public Point getLocation(){
+    return position;
+  }
+
+  public void getPosition(){
+  }
+  
+  public void setPosition(double i, double j) {
+        this.position.setLocation(i, j);
+  }
 	// Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
 	public ArrayList<Volatile> aPourAncetres(int niveau) {
 		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
@@ -66,10 +78,7 @@ public abstract class Volatile {
 		}
 		return listAncetres;
 	}
-  
-
-  public void getPosition(){
-  }
+ 
   
   public void kill(){
 	  this.estVivant = false;
@@ -78,9 +87,18 @@ public abstract class Volatile {
   public void vieillir(long t){
 	  this.age = this.age + t ;
 	  if (this.age >= this.dureeDeVie){
-		  this.kill();}  }
+
+		  this.kill();
+	  }
+  }
+  public void setUnivers(Univers univers) {
+		  this.kill();
+		 
+  
+  }
 
   public void setUnivert(Univers univers) {
+
     monUnivers = univers;
     
   }
