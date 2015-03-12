@@ -144,10 +144,6 @@ public abstract class Volatile {
 		this.vitesse = vitesse;
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
-	}
-
 	public void setUnivers(Univers univers) {
 		monUnivers = univers;
 

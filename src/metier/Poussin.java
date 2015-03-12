@@ -5,7 +5,7 @@ import java.awt.Point;
 public class Poussin extends Volatile {
 
 
-  private boolean deplacementDroite = true;
+  protected boolean deplacementDroite = true;
 
   public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau)
   {
