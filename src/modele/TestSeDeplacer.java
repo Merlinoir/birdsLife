@@ -29,7 +29,7 @@ public class TestSeDeplacer {
     System.out.println("newPosition imposée : " + newPosition);
 
     //je fais se déplacer l'oiseau d'une seconde
-    long tempsTest = 1;
+    double tempsTest = 1;
     cuicui1.seDeplacer(tempsTest);
 
     //l'oiseau devrait etre à la position attendue soit celle du point newPosition donc X=2.0 et Y=0.0
@@ -106,4 +106,6 @@ public class TestSeDeplacer {
     assertTrue(cuicui3.getLocation().equals(newPosition));
   }
    
+  
 }
+  

@@ -6,6 +6,7 @@ import controle.Univers;
 
 public class Poussin extends Volatile {
 
+
   boolean deplacementDroite = true;
 
 	@Override
@@ -26,12 +27,11 @@ public class Poussin extends Volatile {
     System.out.println("je suis un poussin");
   }
 
-  public void seDeplacer(long tempsEnSeconde) {
+  public void seDeplacer(double tempsEnSeconde) {
     //aller à droite. Lorsqu'il atteint la limite de l'univers, il va à gauche (le booléen change le sens)
     // Le poussin a un déplacement limité y=0
     if (deplacementDroite) {
       this.position.setLocation((this.position.x+(tempsEnSeconde*vitesse)), 0.d);
-      System.out.println("methode poussin sedeplacer droite :" + this.position.x);
       if ( this.position.x > monUnivers.MAX_UNIVERS_ABSCISSE )
       {
         this.position.x = monUnivers.MAX_UNIVERS_ABSCISSE ;

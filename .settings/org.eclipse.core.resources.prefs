@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 eclipse.preferences.version=1
 encoding//src/controle/Univers.java=UTF-8
 encoding//src/modele/Adulte.java=UTF-8
@@ -8,4 +9,16 @@ encoding//src/modele/Sex.java=UTF-8
 encoding//src/modele/TestSeDeplacer.java=UTF-8
 encoding//src/modele/TestVieillir.java=UTF-8
 encoding//src/modele/Volatile.java=UTF-8
+=======
+eclipse.preferences.version=1
+encoding//src/controle/Univers.java=UTF-8
+encoding//src/modele/Adulte.java=UTF-8
+encoding//src/modele/Oeuf.java=UTF-8
+encoding//src/modele/Oiseau.java=UTF-8
+encoding//src/modele/Poussin.java=UTF-8
+encoding//src/modele/Sex.java=UTF-8
+encoding//src/modele/TestSeDeplacer.java=UTF-8
+encoding//src/modele/TestVieillir.java=UTF-8
+encoding//src/modele/Volatile.java=UTF-8
+>>>>>>> branch 'dev' of https://github.com/Merlinoir/birdsLife
 encoding/src=UTF-8
