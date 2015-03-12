@@ -1,4 +1,4 @@
-package metier;
+package modele;
 public class Oeuf extends Volatile {
 
   

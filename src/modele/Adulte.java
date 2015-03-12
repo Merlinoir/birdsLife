@@ -1,6 +1,8 @@
-package metier;
+package modele;
 
 import java.awt.Point;
+
+import controle.Univers;
 
 public class Adulte extends Volatile {
 

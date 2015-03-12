@@ -1,6 +1,8 @@
-package metier;
+package controle;
 import java.util.ArrayList;
 import java.util.List;
+
+import modele.Volatile;
 
 public class Univers {
   final int MIN_UNIVERS_ABSCISSE = 0;

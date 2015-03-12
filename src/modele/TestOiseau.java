@@ -1,6 +1,7 @@
-package test;
+package modele;
 import static org.junit.Assert.*;
-import metier.*;
+import modele.*;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;

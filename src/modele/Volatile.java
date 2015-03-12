@@ -1,8 +1,10 @@
-package metier;
+package modele;
 
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+
+import controle.Univers;
 
 public abstract class Volatile {
 
