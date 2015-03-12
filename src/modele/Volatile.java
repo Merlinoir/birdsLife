@@ -135,13 +135,12 @@ public abstract class Volatile {
 		return listTousAncetres;
 	}
 
-	public boolean ancetreEnCommun(Volatile v) {
+	public void ancetreEnCommun(Volatile v) {
 	
 //		liste1 ArrayList<Volatile> = this.tousLesAncetres();
 //		for 
 	
 	
-	return ;
 	}
 	
 	
