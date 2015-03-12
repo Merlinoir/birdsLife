@@ -1,79 +1,85 @@
 package modele;
 
+import java.awt.Point;
+
+import controle.Univers;
+
 public class Adulte extends Volatile {
 
-  
+	private boolean droite = true;
+	private boolean haut = true;
+
+	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
+		position = laOuLOiseauEtait;
+		vitesse = 2;
+		monUnivers = lUnivertDeLOiseau;
+	}
+	
 	@Override
 	protected boolean isMajeur() {
 		return true;
 	}
-	
-  @Override
-  public void info() {
-    System.out.println("je suis un adulte");
-  }
 
-  public void seDeplacer(int temps) {
-    //doit prendre un parametre : temps ???? vitesse ????
-    //au départ ils sont à la position du poussin
-    //les oiseaux se deplacent en ligne droite de A vers un point B donc vers Y=aX+b??
-    this.position.move((int) Math.random(),(int) Math.random());
-    while (true) {
-      //     this.position.move((int) Math.random(),(int) Math.random());
-         }
-  }
-	
-	// Verif pre Reproduction
-	// Premier test : SexeOpposé ?
-	// Deuxième test : Distance proche
-	// Troisième test : Famille différente
-	
-	public boolean reproduction(Oiseau o){
+	@Override
+	public void info() {
+		System.out.println("je suis un adulte");
+	}
+
+	public void seDeplacer(long tempsEnSeconde) {
+
+		int distance = (int) (tempsEnSeconde * vitesse);
+
+		if (droite) {
+			this.position.setLocation((this.position.x + distance), 0.d);
+
+			if (this.position.x > monUnivers.MAX_UNIVERS_ABSCISSE) {
+				this.position.x = monUnivers.MAX_UNIVERS_ABSCISSE;
+				droite = false;
+			}
+
+			// on va a gauche
+		} else {
+			this.position.setLocation((this.position.x - distance), 0.d);
+			if (this.position.x < monUnivers.MIN_UNIVERS_ABSCISSE) {
+				this.position.x = monUnivers.MIN_UNIVERS_ABSCISSE;
+				droite = true;
+			}
+		}
+
+		if (haut) {
+			this.position.setLocation(this.position.x,
+					(this.position.y + distance));
+
+			if (this.position.y > monUnivers.MAX_UNIVERS_ORDONNEES) {
+				this.position.y = monUnivers.MAX_UNIVERS_ORDONNEES;
+				haut = false;
+			}
+
+			// on va en bas
+		} else {
+			this.position.setLocation((this.position.x - distance), 0.d);
+			if (this.position.y < monUnivers.MIN_UNIVERS_ORDONNEES) {
+				this.position.y = monUnivers.MAX_UNIVERS_ORDONNEES;
+				haut = true;
+			}
+		}
+
+	}
+
+	public boolean reproduction(Oiseau o) {
 		// On ignore si un oiseau est mort.
-		
-		
-		return true ;
+
+		return true;
 	}
 
-	public boolean distanceProche(Oiseau o){
-		
+	public boolean distanceProche(Oiseau o) {
+
 		return true;
 	}
-	
-	public boolean familleDifferente(Oiseau o){
-	
-		// 1er point :
-		// Vérifier que les deux oiseaux soient de sexe différent 
-		// méthode dans la classe Oiseau
-		
-		
-		// 2eme point :
-		// On compare si le pere de l'oiseau cible est le pere de l'oiseau o ou de l'un de ses aieux !
-		// recursion
-		
-		
-		// 3eme point :
-		// On compare si la mere de l'oiseau cible est la mere de l'oiseau o ou de l'un de ses aieux !
-		// recursion		
-		
+
+	public boolean familleDifferente(Oiseau o) {
+
 		return true;
 	}
-	
-	
-	/*
-	 * Methodologie :
-	 * verifier qu'une méthode fasse ce pour quoi elle faite et RIEN de plus
-	 * Pas d'appel de B dans A pour etre sur de passer par A avant de commencer B
-	 * Il faut que A ne fasse que son job
-	 * Et c'est à B de faire au debut une verif de la methode A avant de continuer
-	 * il est possible de lancer A sans avoir besoin de B !
-	 * 
-	 * Verifier les parametres en entrée ET en sortie (different de null)
-	 * 
-	 * 
-	 * 
-	 */
-	
-	
 
 }

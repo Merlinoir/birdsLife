@@ -9,7 +9,6 @@ public class Oiseau extends Volatile {
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
-	
 	public Volatile etat;
   
 	@Override
@@ -79,7 +78,7 @@ public class Oiseau extends Volatile {
 	}
   
   public void puberte() {
-    etat = new Adulte();    
+    etat = new Adulte(position,monUnivers);    
   }
   
   protected void calculerDureeDeVie(){
@@ -103,14 +102,6 @@ public class Oiseau extends Volatile {
 		  this.kill();
 		  }  
 	  }
-
-  public Sex getSonSexe() {
-	  return sonSexe;
-  }
-
-  public void setSonSexe(Sex sonSexe) {
-	this.sonSexe = sonSexe;
-  }
 
   public Volatile getEtat() {
 	return etat;

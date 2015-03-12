@@ -1,6 +1,5 @@
 package modele;
 import static org.junit.Assert.*;
-import modele.*;
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -32,6 +31,7 @@ public class TestOiseau {
 
 
 // Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
+
 	public void aPourAncetresTest(int niveau) {
 		ArrayList<Volatile> listAncetresTest = new ArrayList<Volatile>() ;
 		
@@ -78,7 +78,6 @@ public class TestOiseau {
 		
 		// Comparaison des deux resultats :
 		assertTrue ( listAncetresTest.containsAll(test) && test.containsAll(listAncetresTest) ) ;
-
 	}
 
 	

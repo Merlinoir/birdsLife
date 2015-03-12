@@ -137,8 +137,8 @@ public abstract class Volatile {
 
 	public boolean ancetreEnCommun(Volatile v) {
 	
-		liste1 ArrayList<Volatile> = this.tousLesAncetres();
-		for 
+//		liste1 ArrayList<Volatile> = this.tousLesAncetres();
+//		for 
 	
 	
 	return ;

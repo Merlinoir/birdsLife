@@ -6,22 +6,21 @@ import controle.Univers;
 
 public class Poussin extends Volatile {
 
-	
+  private boolean droite = true;
+
 	@Override
 	protected boolean isMajeur() {
 		return false;
 	}
-
-  private boolean droite = true;
-
-  public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau)
-  {
+	
+  public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau){
      System.out.println("je cree un poussin");
      position = laOuLOiseauEtait;
      vitesse = 1;
      monUnivers = lUnivertDeLOiseau;
      
   }
+  
   @Override
   public void info() {
     System.out.println("je suis un poussin");
