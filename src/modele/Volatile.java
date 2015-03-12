@@ -76,7 +76,7 @@ public abstract class Volatile {
 
 
 	/**
-	 * 
+	 * Methode pour reproduction
 	 * @param autreParent
 	 * @return
 	 */
