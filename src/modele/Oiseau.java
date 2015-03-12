@@ -9,13 +9,11 @@ import org.hamcrest.core.IsInstanceOf;
 
 public class Oiseau extends Volatile {
 
-
 	public Volatile etat;
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
 
-	
 	@Override
 	protected boolean isMajeur() {
 		return etat.isMajeur();
@@ -49,9 +47,9 @@ public class Oiseau extends Volatile {
 
 	// Changement d'etat :
 	public void evoluer() {
-		if (this.etat instanceof Oeuf ){
+		if (this.etat instanceof Oeuf) {
 			this.etat = new Poussin(position, monUnivers);
-		} else if (this.etat instanceof Poussin ) {
+		} else if (this.etat instanceof Poussin) {
 			this.etat = new Adulte(position, monUnivers);
 		}
 	}
@@ -65,7 +63,6 @@ public class Oiseau extends Volatile {
 			this.evoluer();
 		}
 	}
-
 
 	/**
 	 * Methode Comparaison Etat Adulte Retourne vrai si les deux oiseaux sont
@@ -99,17 +96,16 @@ public class Oiseau extends Volatile {
 		return etat;
 	}
 
-
 	public void setEtat(Volatile etat) {
 		this.etat = etat;
 	}
 
-  public Sex getSonSexe() {
-	  return sonSexe;
-  }
+	public Sex getSonSexe() {
+		return sonSexe;
+	}
 
-  public void setSonSexe(Sex sonSexe) {
-	this.sonSexe = sonSexe;
-  }
+	public void setSonSexe(Sex sonSexe) {
+		this.sonSexe = sonSexe;
+	}
 
 }
