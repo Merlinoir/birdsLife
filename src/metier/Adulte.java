@@ -1,3 +1,4 @@
+package metier;
 
 public class Adulte extends Volatile {
 

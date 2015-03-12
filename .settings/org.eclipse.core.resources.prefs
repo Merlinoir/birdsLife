@@ -1,2 +1,12 @@
 eclipse.preferences.version=1
-encoding//src/Volatile.java=UTF-8
+encoding//src/metier/Adulte.java=UTF-8
+encoding//src/metier/Main.java=UTF-8
+encoding//src/metier/Oeuf.java=UTF-8
+encoding//src/metier/Oiseau.java=UTF-8
+encoding//src/metier/Poussin.java=UTF-8
+encoding//src/metier/Sex.java=UTF-8
+encoding//src/metier/Univers.java=UTF-8
+encoding//src/metier/Volatile.java=UTF-8
+encoding//src/test/TestSeDeplacer.java=UTF-8
+encoding//src/test/TestVieillir.java=UTF-8
+encoding/src=UTF-8
