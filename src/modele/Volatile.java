@@ -97,7 +97,6 @@ public abstract class Volatile {
 	 * @return Liste de Volatile Parametree
 	 * @author Frederic & Franck
 	 */
-	
 	public ArrayList<Volatile> aPourAncetres(int niveau) {
 		ArrayList<Volatile> listParamAncetres = new ArrayList<Volatile>();
 		// Mettre dans la liste l'oiseau lui meme
@@ -137,7 +136,7 @@ public abstract class Volatile {
 		}
 		return listTousAncetres;
 	}
-	
+
 	/**
 	 * Retourne si tous les ancetres des deux volatiles sont différents.
 	 * Utilise deux listes de la methode : tousLesAncetres()

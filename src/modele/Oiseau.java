@@ -9,12 +9,13 @@ public class Oiseau extends Volatile {
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
-	public Volatile etat;
-  
+	Volatile etat;
+	
 	@Override
 	protected boolean isMajeur() {
 		return etat.isMajeur();
 	};
+  
 	public void info() {
 		// Etat de l'oiseau 
 		System.out.println("je suis un " + this.etat);
@@ -25,10 +26,11 @@ public class Oiseau extends Volatile {
     etat = new Oeuf();
 
     Random rand = new Random();
-    int x= rand.nextInt(100);
+    int x = rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
     
+        
     vitesse =0;
     calculerDureeDeVie();
     estVivant = true;
@@ -47,14 +49,13 @@ public class Oiseau extends Volatile {
 	public void eclore() {
 		etat=new Poussin(position,monUnivers);
 		
+	    
+		
 	}
 
-	/**
-	 * Methode Comparaison Etat Adulte
-	 * Retourne vrai si les deux oiseaux sont des adultes.
-	 */
-	public boolean comparerEtats(Oiseau o){
-	return ( (this.getEtat().equals(Adulte.class) ) && o.getEtat().equals(Adulte.class)) ;
+	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
+	public boolean sexeOppose(Oiseau o){
+	return (this.sonSexe != o.sonSexe) ;
 	}
 	
 
@@ -102,6 +103,14 @@ public class Oiseau extends Volatile {
 		  this.kill();
 		  }  
 	  }
+
+  public Sex getSonSexe() {
+	  return sonSexe;
+  }
+
+  public void setSonSexe(Sex sonSexe) {
+	this.sonSexe = sonSexe;
+  }
 
   public Volatile getEtat() {
 	return etat;
