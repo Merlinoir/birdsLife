@@ -1,4 +1,4 @@
-package metier;
+package modele;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,13 @@ public class Oiseau extends Volatile {
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
-	Sex sonSexe;  // Enum
-	Volatile etat;
+	
+	public Volatile etat;
   
+	@Override
+	protected boolean isMajeur() {
+		return etat.isMajeur();
+	};
 	public void info() {
 		// Etat de l'oiseau 
 		System.out.println("je suis un " + this.etat);
@@ -46,9 +50,12 @@ public class Oiseau extends Volatile {
 		
 	}
 
-	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
-	public boolean sexeOppose(Oiseau o){
-	return (this.sonSexe != o.sonSexe) ;
+	/**
+	 * Methode Comparaison Etat Adulte
+	 * Retourne vrai si les deux oiseaux sont des adultes.
+	 */
+	public boolean comparerEtats(Oiseau o){
+	return ( (this.getEtat().equals(Adulte.class) ) && o.getEtat().equals(Adulte.class)) ;
 	}
 	
 

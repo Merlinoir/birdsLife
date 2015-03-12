@@ -1,9 +1,13 @@
-package metier;
+package modele;
 
 public class Adulte extends Volatile {
 
   
-  
+	@Override
+	protected boolean isMajeur() {
+		return true;
+	}
+	
   @Override
   public void info() {
     System.out.println("je suis un adulte");

@@ -1,9 +1,16 @@
-package metier;
+package modele;
 import java.awt.Point;
+
+import controle.Univers;
 
 
 public class Poussin extends Volatile {
 
+	
+	@Override
+	protected boolean isMajeur() {
+		return false;
+	}
 
   private boolean droite = true;
 

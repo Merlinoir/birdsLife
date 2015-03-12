@@ -1,9 +1,9 @@
-package test;
+package modele;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import metier.*;
+import modele.*;
 
 public class TestVieillir {
 	
