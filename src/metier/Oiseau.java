@@ -72,7 +72,7 @@ public class Oiseau extends Volatile {
 	}
   
   public void puberte() {
-    etat = new Adulte();    
+    etat = new Adulte(position,monUnivers);    
   }
   
   protected void calculerDureeDeVie(){
