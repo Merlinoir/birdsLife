@@ -2,15 +2,22 @@ package modele;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import controle.Univers;
 
 public abstract class Volatile {
+	
+	/// TODO : remettre en final 
+	 final static int VIE_MAX = 60;
+	 final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
+	 final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
 
 	double dureeDeVie;
 	Sex sonSexe;  // Enum
 	final double ZONE_DE_REPRODUCTION = 20 ;
+	final int NIV_RECHERCHE = 3 ;
 	List<Volatile> listeParents;
 	Point position;
 	long dateNaissance;
@@ -43,7 +50,6 @@ public abstract class Volatile {
 
 	public void seDeplacer(long tempsEnSeconde) {
 		// quelle unité de temps choisir???
-
 	}
 	
 	/**
@@ -69,21 +75,22 @@ public abstract class Volatile {
 		if (! this.estProche(v) ) { return false; }
 		if (! this.lesDeuxSontMajeurs(v) )  { return false; }
 		if (! sexeOppose(v) ) { return false; }
-		
+		if (PasDAscendantsSelonParam(v, NIV_RECHERCHE)) { return false; } ;
 		return true;
-
 		}
-		
-		
-		
+
 
 	/**
-	 * 
+	 * Methode pour reproduction
 	 * @param autreParent
 	 * @return
 	 */
-	public Oiseau seReproduire(Oiseau autreParent) {
-		return null;
+	public Oiseau seReproduire(Volatile v) {
+		if (reproductionPossible(v)) {
+			Oiseau egg = new Oiseau() ;
+			return egg ;
+		}
+		else return null;
 	}
 
 
@@ -135,19 +142,52 @@ public abstract class Volatile {
 		return listTousAncetres;
 	}
 
-	public void ancetreEnCommun(Volatile v) {
+	/**
+	 * Retourne si tous les ancetres des deux volatiles sont différents.
+	 * Utilise deux listes de la methode : tousLesAncetres()
+	 * @param v volatile
+	 * @return booléen
+	 */
+	public boolean PasDancetreEnCommun(Volatile v) {
 	
-//		liste1 ArrayList<Volatile> = this.tousLesAncetres();
-//		for 
-	
-	
+		ArrayList<Volatile> liste1 = this.tousLesAncetres();
+		ArrayList<Volatile> liste2 = v.tousLesAncetres();
+	return Collections.disjoint( liste1, liste2);
 	}
 	
+	/**
+	 * Retourne si tous les ancetres des deux volatiles sont différents.
+	 * Utilise deux listes de la methode : aPourAncetres(int niveau)
+	 * @param v volatile et int (niveau d'ascendance)
+	 * @return booléen
+	 * disjoints : Returns true if the two specified collections have no elements in common.
+	 */
+	public boolean PasDAscendantsSelonParam(Volatile v, int niveau) {
 	
-	
+		ArrayList<Volatile> liste1 = this.aPourAncetres(niveau);
+		ArrayList<Volatile> liste2 = v.aPourAncetres(niveau);
+	return Collections.disjoint( liste1, liste2);
+	}
+
 	public void kill() {
 		this.estVivant = false;
 	}
+	
+	  protected void calculerDureeDeVie(){
+		  this.dureeDeVie = (Math.random() * (VIE_MAX-1)) + 1 * Math.pow(10, 9) ;
+	  }
+	  
+	  
+	  protected long calculerAge(){
+		long difference = System.nanoTime() - this.dateNaissance;
+		return difference;  
+	  }
+	  
+	  public void vieillir(){
+		  if (this.calculerAge() >= this.dureeDeVie){
+			  this.kill();
+			  }  
+		  }
 	
 	// Getter Setter
 	
@@ -169,8 +209,6 @@ public abstract class Volatile {
 	public void setDureeDeVie(double dureeDeVie) {
 		this.dureeDeVie = dureeDeVie;
 	}
-
-
 
 	public Sex getSonSexe() {
 		return sonSexe;

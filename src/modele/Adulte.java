@@ -1,20 +1,26 @@
 package modele;
 
 import java.awt.Point;
+import java.util.Random;
 
 import controle.Univers;
 
 public class Adulte extends Volatile {
-
-	private boolean droite = true;
-	private boolean haut = true;
+	
+	// Point de destination
+	Point pointFinal;
 
 	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
 		position = laOuLOiseauEtait;
 		vitesse = 2;
 		monUnivers = lUnivertDeLOiseau;
+		// Point de destination
+		Random rand = new Random();
+		int x = rand.nextInt(monUnivers.MAX_UNIVERS_ABSCISSE);
+		int y = rand.nextInt(monUnivers.MAX_UNIVERS_ORDONNEES);
+		pointFinal = new Point(x, y);
 	}
-	
+
 	@Override
 	protected boolean isMajeur() {
 		return true;
@@ -25,43 +31,31 @@ public class Adulte extends Volatile {
 		System.out.println("je suis un adulte");
 	}
 
+	
 	public void seDeplacer(long tempsEnSeconde) {
 
 		int distance = (int) (tempsEnSeconde * vitesse);
 
-		if (droite) {
-			this.position.setLocation((this.position.x + distance), 0.d);
+		// Calculer la distance entre position actuelle et finale
+		double ecartX = Math.pow((this.pointFinal.x - this.position.x), 2);
+		double ecartY = Math.pow((this.pointFinal.y - this.position.y), 2);
+		double distanceTotale = Math.sqrt(ecartX + ecartY);
 
-			if (this.position.x > monUnivers.MAX_UNIVERS_ABSCISSE) {
-				this.position.x = monUnivers.MAX_UNIVERS_ABSCISSE;
-				droite = false;
-			}
-
-			// on va a gauche
+		if (distance > distanceTotale || distanceTotale == 0) {
+			this.position.setLocation(this.pointFinal);
+			Random rand = new Random();
+			this.pointFinal = new Point(
+					rand.nextInt(monUnivers.MAX_UNIVERS_ABSCISSE),
+					rand.nextInt(monUnivers.MAX_UNIVERS_ORDONNEES));
 		} else {
-			this.position.setLocation((this.position.x - distance), 0.d);
-			if (this.position.x < monUnivers.MIN_UNIVERS_ABSCISSE) {
-				this.position.x = monUnivers.MIN_UNIVERS_ABSCISSE;
-				droite = true;
-			}
-		}
+			// Calcul du ratio
+			double ratio = (distance / distanceTotale);
 
-		if (haut) {
-			this.position.setLocation(this.position.x,
-					(this.position.y + distance));
+			// Incrementation
+			double incX = ratio * (this.pointFinal.x - this.position.x);
+			double incY = ratio * (this.pointFinal.y - this.position.y);
 
-			if (this.position.y > monUnivers.MAX_UNIVERS_ORDONNEES) {
-				this.position.y = monUnivers.MAX_UNIVERS_ORDONNEES;
-				haut = false;
-			}
-
-			// on va en bas
-		} else {
-			this.position.setLocation((this.position.x - distance), 0.d);
-			if (this.position.y < monUnivers.MIN_UNIVERS_ORDONNEES) {
-				this.position.y = monUnivers.MAX_UNIVERS_ORDONNEES;
-				haut = true;
-			}
+			this.position.setLocation(incX, incY);
 		}
 
 	}
