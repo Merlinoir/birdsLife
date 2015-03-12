@@ -6,7 +6,8 @@ import controle.Univers;
 
 public class Poussin extends Volatile {
 
-  private boolean deplacementDroite = true;
+
+  boolean deplacementDroite = true;
 
 	@Override
 	protected boolean isMajeur() {
