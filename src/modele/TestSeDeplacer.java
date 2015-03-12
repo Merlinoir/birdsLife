@@ -9,18 +9,19 @@ import controle.Univers;
 
 public class TestSeDeplacer {
 
-  private Oiseau initialiseOiseau() {
+  private Oiseau initialiseOiseau() throws InterruptedException {
     //creer un univers
     Univers monUnivers = new Univers ();
     Oiseau cuicui1= new Oiseau();
     monUnivers.addVolatile(cuicui1);
-    cuicui1.eclore();
+    Thread.sleep(6000);
+    cuicui1.vieillir();
     return cuicui1;
   }
   
   @Test
   //Test pour un déplacement d'une seconde
-  public void testSeDeplacerUneSeconde() {
+  public void testSeDeplacerUneSeconde() throws InterruptedException {
     Oiseau cuicui1= initialiseOiseau();
     cuicui1.setPosition(1.0,0.0);
 
@@ -42,7 +43,7 @@ public class TestSeDeplacer {
 
   @Test
   //Test pour un déplacement à la limite droite
-  public void testSeDeplacerDroite() {
+  public void testSeDeplacerDroite() throws InterruptedException {
     Oiseau cuicui2= initialiseOiseau();
     cuicui2.setPosition(97.0,0.0);
 
@@ -63,7 +64,7 @@ public class TestSeDeplacer {
   
   @Test
   //Test pour un déplacement à la limite droite
-  public void testSeDeplacerPoussinAuMaxDeDroite() {
+  public void testSeDeplacerPoussinAuMaxDeDroite() throws InterruptedException {
     Oiseau cuicui2= initialiseOiseau();
     cuicui2.setPosition(100.0,0.0);
 
@@ -84,7 +85,7 @@ public class TestSeDeplacer {
   
   @Test
   //Test pour un déplacement à la limite gauche
-  public void testSeDeplacerGauche() {
+  public void testSeDeplacerGauche() throws InterruptedException {
     Oiseau cuicui3= initialiseOiseau();
     cuicui3.setPosition(5.0,0.0);
     
