@@ -82,18 +82,20 @@ public abstract class Volatile {
 	 */
 	public Oiseau seReproduire(Volatile v) {
 		if (reproductionPossible(v)) {
-			Oiseau egg = new Oiseau() ;
+			List<Volatile> parents = null ;
+			parents.add(this) ;
+			parents.add(v) ;
+			Oiseau egg = new Oiseau(parents) ;
 			return egg ;
 		}
 		else return null;
 	}
 
 
-
 	/**
 	 * Methode retournant un oiseau est ses ancetres avec
 	 * en parametre son degre de parente
-	 * @param Niveau de parente : 1= parents 2= Gds Parents etc...
+	 * @param Niveau de parente : 1= freres soeurs 2= cousins etc...
 	 * @return Liste de Volatile Parametree
 	 * @author Frederic & Franck
 	 */

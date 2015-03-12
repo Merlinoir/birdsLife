@@ -52,11 +52,6 @@ public class Oiseau extends Volatile {
 	    
 		
 	}
-
-	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
-	public boolean sexeOppose(Oiseau o){
-	return (this.sonSexe != o.sonSexe) ;
-	}
 	
 
   public void seDeplacer(long tempsEnSeconde) {
