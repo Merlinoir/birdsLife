@@ -52,7 +52,8 @@ public abstract class Volatile {
 		return position;
 	}
 
-	public void getPosition() {
+	public Point getPosition() {
+	  return position;
 	}
 
 	public void setPosition(double i, double j) {

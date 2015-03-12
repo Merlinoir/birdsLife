@@ -5,7 +5,7 @@ import java.awt.Point;
 public class Poussin extends Volatile {
 
 
-  private boolean droite = true;
+  private boolean deplacementDroite = true;
 
   public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau)
   {
@@ -23,22 +23,20 @@ public class Poussin extends Volatile {
   public void seDeplacer(long tempsEnSeconde) {
     //aller à droite. Lorsqu'il atteint la limite de l'univers, il va à gauche (le booléen change le sens)
     // Le poussin a un déplacement limité y=0
-    if (droite) {
+    if (deplacementDroite) {
       this.position.setLocation((this.position.x+(tempsEnSeconde*vitesse)), 0.d);
-      System.out.println("methode poussin sedeplacer droite :" + this.position.x);
       if ( this.position.x > monUnivers.MAX_UNIVERS_ABSCISSE )
       {
         this.position.x = monUnivers.MAX_UNIVERS_ABSCISSE ;
-        droite = false;
+        deplacementDroite = false;
       }
-      System.out.println("methode seDeplacerPoussin : "+ this.position);
       //si la limite droite est atteinte, on repart à gauche
     } else {
       this.position.setLocation((this.position.x-(tempsEnSeconde*vitesse)), 0.d);
       if ( this.position.x < monUnivers.MIN_UNIVERS_ABSCISSE )
       {
         this.position.x = monUnivers.MIN_UNIVERS_ABSCISSE ;
-        droite = true;
+        deplacementDroite = true;
       }
     }
   }
