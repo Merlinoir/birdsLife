@@ -22,10 +22,11 @@ public class Oiseau extends Volatile {
     etat = new Oeuf();
 
     Random rand = new Random();
-    int x= rand.nextInt(100);
+    int x = rand.nextInt(100);
     int y = 0;
     position = new Point(x,y);
     
+        
     vitesse =0;
     calculerDureeDeVie();
     estVivant = true;
@@ -43,6 +44,8 @@ public class Oiseau extends Volatile {
 	
 	public void eclore() {
 		etat=new Poussin(position,monUnivers);
+		
+	    
 		
 	}
 
