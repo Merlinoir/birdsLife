@@ -73,7 +73,7 @@ public class Oiseau extends Volatile {
 				Adulte.class));
 	}
 
-	public void seDeplacer(long tempsEnSeconde) {
+	public void seDeplacer(double tempsEnSeconde) {
 		etat.seDeplacer(tempsEnSeconde);
 
 	}

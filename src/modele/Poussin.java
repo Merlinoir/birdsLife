@@ -32,7 +32,6 @@ public class Poussin extends Volatile {
     // Le poussin a un déplacement limité y=0
     if (deplacementDroite) {
       this.position.setLocation((this.position.x+(tempsEnSeconde*vitesse)), 0.d);
-      System.out.println("methode poussin sedeplacer droite :" + this.position.x);
       if ( this.position.x > monUnivers.MAX_UNIVERS_ABSCISSE )
       {
         this.position.x = monUnivers.MAX_UNIVERS_ABSCISSE ;

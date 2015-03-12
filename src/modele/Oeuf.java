@@ -12,7 +12,7 @@ public class Oeuf extends Volatile {
   }
  
    @Override
-   public void seDeplacer(long tempsEnSeconde) {
+   public void seDeplacer(double tempsEnSeconde) {
     // L'oeuf ne se déplace pas
    }
   

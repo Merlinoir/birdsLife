@@ -51,7 +51,7 @@ public abstract class Volatile {
 	public void info() {
 	}
 
-	public void seDeplacer(long tempsEnSeconde) {
+	public void seDeplacer(double tempsEnSeconde) {
 		// quelle unité de temps choisir???
 	}
 	
