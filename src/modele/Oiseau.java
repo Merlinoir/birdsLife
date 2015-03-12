@@ -26,7 +26,6 @@ public class Oiseau extends Volatile {
 		System.out.println("je suis un " + this.etat);
 	}
 
-<<<<<<< HEAD
 	// constructeur
 	public Oiseau() {
 		etat = new Oeuf();
@@ -75,10 +74,6 @@ public class Oiseau extends Volatile {
 	public boolean comparerEtats(Oiseau o) {
 		return ((this.getEtat().equals(Adulte.class)) && o.getEtat().equals(
 				Adulte.class));
-	}
-
-	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
-	public boolean sexeOppose(Oiseau o){
 	}
 
 	public void seDeplacer(long tempsEnSeconde) {
