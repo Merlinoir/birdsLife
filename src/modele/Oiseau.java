@@ -14,7 +14,7 @@ public class Oiseau extends Volatile {
 	@Override
 	protected boolean isMajeur() {
 		return etat.isMajeur();
-	};
+	}
   
 	public void info() {
 		// Etat de l'oiseau 
