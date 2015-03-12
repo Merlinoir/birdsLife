@@ -3,15 +3,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import modele.*;
-
 public class TestVieillir {
 	
 	@Test
 	public void oeufToPoussin() throws InterruptedException{
 		Oiseau titi = new Oiseau();
 		titi.setDureeDeVie(60 * Math.pow(10, 9));
-		Thread.sleep(6000);
+		Thread.sleep(500);
 		titi.vieillir();
 		assertTrue(titi.getEtat().getClass().equals(Poussin.class));		
 	}

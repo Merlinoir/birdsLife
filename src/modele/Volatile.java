@@ -7,6 +7,11 @@ import java.util.List;
 import controle.Univers;
 
 public abstract class Volatile {
+	
+	/// TODO : remettre en final 
+	 final static int VIE_MAX = 60;
+	 final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
+	 final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
 
 	double dureeDeVie;
 	Sex sonSexe;  // Enum
@@ -143,11 +148,25 @@ public abstract class Volatile {
 	
 	}
 	
-	
-	
 	public void kill() {
 		this.estVivant = false;
 	}
+	
+	  protected void calculerDureeDeVie(){
+		  this.dureeDeVie = (Math.random() * (VIE_MAX-1)) + 1 * Math.pow(10, 9) ;
+	  }
+	  
+	  
+	  protected long calculerAge(){
+		long difference = System.nanoTime() - this.dateNaissance;
+		return difference;  
+	  }
+	  
+	  public void vieillir(){
+		  if (this.calculerAge() >= this.dureeDeVie){
+			  this.kill();
+			  }  
+		  }
 	
 	// Getter Setter
 	
@@ -169,8 +188,6 @@ public abstract class Volatile {
 	public void setDureeDeVie(double dureeDeVie) {
 		this.dureeDeVie = dureeDeVie;
 	}
-
-
 
 	public Sex getSonSexe() {
 		return sonSexe;
