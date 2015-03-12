@@ -85,8 +85,6 @@ public abstract class Volatile {
   
 //  public void setUnivers(Univers univers) {
 //		  this.kill();
-//		 
-//  
 //  }
 
   public void setUnivers(Univers univers) {
