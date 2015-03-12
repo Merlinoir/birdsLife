@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -51,19 +52,19 @@ public class TestOiseau {
 		mereMontaigu.getListeParents().add(GdmereMontaiguM) ;
 		
 		// Famille Capulet
-//		Oiseau GdpereCapuletP = new Oiseau() ;
-//		Oiseau GdmereCapuletP = new Oiseau() ;
-//		Oiseau GdpereCapuletM = new Oiseau() ;
-//		Oiseau GdmereCapuletM = new Oiseau() ;
-//		Oiseau pereCapulet = new Oiseau() ;
-//		Oiseau mereCapulet = new Oiseau() ;
-//		Oiseau filleCapulet = new Oiseau() ;
-//		filleCapulet.listeParents.add(pereCapulet) ;
-//		filleCapulet.listeParents.add(mereCapulet) ;
-//		pereCapulet.listeParents.add(GdpereCapuletP) ;
-//		pereCapulet.listeParents.add(GdmereCapuletP) ;
-//		mereCapulet.listeParents.add(GdpereCapuletM) ;
-//		mereCapulet.listeParents.add(GdmereCapuletM) ;
+		Oiseau GdpereCapuletP = new Oiseau() ;
+		Oiseau GdmereCapuletP = new Oiseau() ;
+		Oiseau GdpereCapuletM = new Oiseau() ;
+		Oiseau GdmereCapuletM = new Oiseau() ;
+		Oiseau pereCapulet = new Oiseau() ;
+		Oiseau mereCapulet = new Oiseau() ;
+		Oiseau filleCapulet = new Oiseau() ;
+		filleCapulet.listeParents.add(pereCapulet) ;
+		filleCapulet.listeParents.add(mereCapulet) ;
+		pereCapulet.listeParents.add(GdpereCapuletP) ;
+		pereCapulet.listeParents.add(GdmereCapuletP) ;
+		mereCapulet.listeParents.add(GdpereCapuletM) ;
+		mereCapulet.listeParents.add(GdmereCapuletM) ;
 		
 		// listAncetres.addAll(filsMontaigu.getListeParents());  // On ne met pas le fils lui meme
 		listAncetresTest.addAll(pereMontaigu.getListeParents());
@@ -73,14 +74,13 @@ public class TestOiseau {
 		listAncetresTest.addAll(GdmereMontaiguP.getListeParents());
 		listAncetresTest.addAll(GdpereMontaiguP.getListeParents());
 		
-		// utiliser ici la methode de la classe
-		ArrayList<Volatile> test = filsMontaigu.aPourAncetres(2) ;
+		// utiliser ici la methode de la classe pour la Famille Capulet
+		ArrayList<Volatile> test = filleCapulet.aPourAncetres(2) ;
 		
 		// Comparaison des deux resultats :
-		assertTrue ( listAncetresTest.containsAll(test) && test.containsAll(listAncetresTest) ) ;
+		assertTrue ( Collections.disjoint( listAncetresTest, test )) ;
 	}
 
-	
 	
 
 }

@@ -17,7 +17,9 @@ public class Oiseau extends Volatile {
 	@Override
 	protected boolean isMajeur() {
 		return etat.isMajeur();
-	};
+
+	}
+
 
 	public void info() {
 		// Etat de l'oiseau
@@ -46,6 +48,14 @@ public class Oiseau extends Volatile {
 	}
 
 	// Changement d'etat :
+
+	
+	public void eclore() {
+		etat=new Poussin(position,monUnivers);
+		
+	}
+		
+
 	public void evoluer() {
 		if (this.etat instanceof Oeuf) {
 			this.etat = new Poussin(position, monUnivers);
@@ -62,6 +72,7 @@ public class Oiseau extends Volatile {
 		if (this.calculerAge() >= SEUIL_ADULTE) {
 			this.evoluer();
 		}
+
 	}
 
 	/**
