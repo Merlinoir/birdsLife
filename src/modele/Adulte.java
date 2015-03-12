@@ -7,8 +7,8 @@ import controle.Univers;
 
 public class Adulte extends Volatile {
 	
-	// Point de destination
-	Point pointFinal;
+	// Point de destination mis dans classe volatile
+	// Point pointFinal;
 
 	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
 		position = laOuLOiseauEtait;

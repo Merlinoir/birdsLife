@@ -18,6 +18,9 @@ public abstract class Volatile {
 	protected Univers monUnivers;
 	long vitesse;
 
+	// Point de destination (pour Junit)
+	Point pointFinal;
+
 	public boolean estProche(Volatile v) {
 		double ecartX;
 		double ecartY;

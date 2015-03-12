@@ -106,4 +106,6 @@ public class TestSeDeplacer {
     assertTrue(cuicui3.getLocation().equals(newPosition));
   }
    
+  
 }
+  
