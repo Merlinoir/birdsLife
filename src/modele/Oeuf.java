@@ -1,7 +1,11 @@
-package metier;
+package modele;
 public class Oeuf extends Volatile {
+	
+	@Override
+	protected boolean isMajeur() {
+		return false;
+	}
 
-  
   public void info() {
     //affichage
     System.out.println("je suis un oeuf");

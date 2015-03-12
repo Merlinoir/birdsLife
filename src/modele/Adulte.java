@@ -1,7 +1,9 @@
-package metier;
+package modele;
 
 import java.awt.Point;
 import java.util.Random;
+
+import controle.Univers;
 
 public class Adulte extends Volatile {
 	
@@ -17,6 +19,11 @@ public class Adulte extends Volatile {
 		int x = rand.nextInt(monUnivers.MAX_UNIVERS_ABSCISSE);
 		int y = rand.nextInt(monUnivers.MAX_UNIVERS_ORDONNEES);
 		pointFinal = new Point(x, y);
+	}
+
+	@Override
+	protected boolean isMajeur() {
+		return true;
 	}
 
 	@Override

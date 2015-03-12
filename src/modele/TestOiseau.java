@@ -1,6 +1,6 @@
-package test;
+package modele;
 import static org.junit.Assert.*;
-import metier.*;
+
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +31,9 @@ public class TestOiseau {
 
 
 // Méthode retournant les ancetres d'un Oiseau avec en parametres son degré de parenté
-	public ArrayList<Volatile> aPourAncetres(int niveau) {
-		ArrayList<Volatile> listAncetres = new ArrayList<Volatile>() ;
+
+	public void aPourAncetresTest(int niveau) {
+		ArrayList<Volatile> listAncetresTest = new ArrayList<Volatile>() ;
 		
 		// Instancier les Oiseaux test :
 		Oiseau GdpereMontaiguP = new Oiseau() ;
@@ -49,7 +50,7 @@ public class TestOiseau {
 		mereMontaigu.getListeParents().add(GdpereMontaiguM) ;
 		mereMontaigu.getListeParents().add(GdmereMontaiguM) ;
 		
-		
+		// Famille Capulet
 //		Oiseau GdpereCapuletP = new Oiseau() ;
 //		Oiseau GdmereCapuletP = new Oiseau() ;
 //		Oiseau GdpereCapuletM = new Oiseau() ;
@@ -64,22 +65,19 @@ public class TestOiseau {
 //		mereCapulet.listeParents.add(GdpereCapuletM) ;
 //		mereCapulet.listeParents.add(GdmereCapuletM) ;
 		
-		listAncetres.addAll(filsMontaigu.getListeParents());
-		listAncetres.addAll(filsMontaigu.getListeParents()); // sur le pere
-		listAncetres.addAll(filsMontaigu.getListeParents()); // sur la mere etc on ajoute a la liste
+		// listAncetres.addAll(filsMontaigu.getListeParents());  // On ne met pas le fils lui meme
+		listAncetresTest.addAll(pereMontaigu.getListeParents());
+		listAncetresTest.addAll(mereMontaigu.getListeParents());
+		listAncetresTest.addAll(GdmereMontaiguM.getListeParents());
+		listAncetresTest.addAll(GdpereMontaiguM.getListeParents());
+		listAncetresTest.addAll(GdmereMontaiguP.getListeParents());
+		listAncetresTest.addAll(GdpereMontaiguP.getListeParents());
 		
-		if (niveau >=1) {
-			if (niveau==1) { 
-				listAncetres.addAll(this.getListeParents());
-				return listAncetres ;
-			}
-			else {
-				for (Volatile unParent : listeParents) {
-					listAncetres.addAll( unParent.aPourAncetres(niveau-1));
-				}
-			}
-		}
-		return listAncetres;
+		// utiliser ici la methode de la classe
+		ArrayList<Volatile> test = filsMontaigu.aPourAncetres(2) ;
+		
+		// Comparaison des deux resultats :
+		assertTrue ( listAncetresTest.containsAll(test) && test.containsAll(listAncetresTest) ) ;
 	}
 
 	

@@ -1,4 +1,4 @@
-package metier;
+package modele;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,12 @@ public class Oiseau extends Volatile {
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
-	Sex sonSexe;  // Enum
 	Volatile etat;
+	
+	@Override
+	protected boolean isMajeur() {
+		return etat.isMajeur();
+	};
   
 	public void info() {
 		// Etat de l'oiseau 
