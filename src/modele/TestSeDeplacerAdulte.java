@@ -13,9 +13,11 @@ public class TestSeDeplacerAdulte {
 	private Oiseau initialiseOiseauAdulte() {
 		// creer un univers
 		Univers monUnivers = new Univers();
+		
 		Oiseau cuicui4 = new Oiseau();
 		monUnivers.addVolatile(cuicui4);
-		cuicui4.etat = new Adulte(position, monUnivers);
+		cuicui4.setPosition(16.0, 28.0);
+		cuicui4.etat = new Adulte(cuicui4.position, monUnivers);
 		return cuicui4;
 	}
 
@@ -23,7 +25,7 @@ public class TestSeDeplacerAdulte {
 	// Test pour un déplacement d'une seconde
 	public void testSeDeplacerAdulteUneSeconde() {
 		Oiseau cuicui4 = initialiseOiseauAdulte();
-		cuicui4.setPosition(16.0, 28.0);
+		// cuicui4.setPosition(16.0, 28.0);
 		System.out.println(cuicui4.position);
 
 		// Imposer le point final

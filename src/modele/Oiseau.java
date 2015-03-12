@@ -9,13 +9,11 @@ import org.hamcrest.core.IsInstanceOf;
 
 public class Oiseau extends Volatile {
 
-
 	public Volatile etat;
 	final static int VIE_MAX = 60;
 	final static double SEUIL_POUSSIN = 5 * Math.pow(10, 9);
 	final static double SEUIL_ADULTE = 20 * Math.pow(10, 9);
 
-	
 	@Override
 	protected boolean isMajeur() {
 		return etat.isMajeur();
@@ -26,7 +24,6 @@ public class Oiseau extends Volatile {
 		System.out.println("je suis un " + this.etat);
 	}
 
-<<<<<<< HEAD
 	// constructeur
 	public Oiseau() {
 		etat = new Oeuf();
@@ -50,9 +47,9 @@ public class Oiseau extends Volatile {
 
 	// Changement d'etat :
 	public void evoluer() {
-		if (this.etat instanceof Oeuf ){
+		if (this.etat instanceof Oeuf) {
 			this.etat = new Poussin(position, monUnivers);
-		} else if (this.etat instanceof Poussin ) {
+		} else if (this.etat instanceof Poussin) {
 			this.etat = new Adulte(position, monUnivers);
 		}
 	}
@@ -67,7 +64,6 @@ public class Oiseau extends Volatile {
 		}
 	}
 
-
 	/**
 	 * Methode Comparaison Etat Adulte Retourne vrai si les deux oiseaux sont
 	 * des adultes.
@@ -75,10 +71,6 @@ public class Oiseau extends Volatile {
 	public boolean comparerEtats(Oiseau o) {
 		return ((this.getEtat().equals(Adulte.class)) && o.getEtat().equals(
 				Adulte.class));
-	}
-
-	//Methode sexe oppose retourne vrai si les deux oiseaux sont de sexe opposé
-	public boolean sexeOppose(Oiseau o){
 	}
 
 	public void seDeplacer(long tempsEnSeconde) {
@@ -104,17 +96,16 @@ public class Oiseau extends Volatile {
 		return etat;
 	}
 
-
 	public void setEtat(Volatile etat) {
 		this.etat = etat;
 	}
 
-  public Sex getSonSexe() {
-	  return sonSexe;
-  }
+	public Sex getSonSexe() {
+		return sonSexe;
+	}
 
-  public void setSonSexe(Sex sonSexe) {
-	this.sonSexe = sonSexe;
-  }
+	public void setSonSexe(Sex sonSexe) {
+		this.sonSexe = sonSexe;
+	}
 
 }

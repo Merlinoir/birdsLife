@@ -6,14 +6,12 @@ import java.util.Random;
 import controle.Univers;
 
 public class Adulte extends Volatile {
-	
-	// Point de destination mis dans classe volatile
-	// Point pointFinal;
 
 	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
 		position = laOuLOiseauEtait;
 		vitesse = 2;
 		monUnivers = lUnivertDeLOiseau;
+		
 		// Point de destination
 		Random rand = new Random();
 		int x = rand.nextInt(monUnivers.MAX_UNIVERS_ABSCISSE);
