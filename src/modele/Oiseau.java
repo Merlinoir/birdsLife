@@ -1,5 +1,6 @@
 package modele;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +61,30 @@ public class Oiseau extends Volatile {
 		listeParents = parents;
 	}
 
+	/**
+	 * Methode qui renvoie une couleur en fonction de l'etat de l'oiseau
+	 * et s'il est mort...
+	 * @return Color
+	 */
+	public Color colorise() {
+		// Oeuf : Blanc Poussin : Jaune Adulte : Orange Mort : Gris
+		if (estVivant) {
+			if ( this.getEtat() instanceof Oeuf) {
+				return Color.WHITE ;
+			}
+			if ( this.getEtat() instanceof Poussin) {
+				return Color.YELLOW ;
+			}
+			if ( this.getEtat() instanceof Adulte) {
+				return Color.RED ;
+			}
+		}
+		return Color.GRAY;
+	}
+	
+	
+	
+	
 	// Changement d'etat :
 	public void eclore() {
 		etat = new Poussin(etat.position, etat.monUnivers);
