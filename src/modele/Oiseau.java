@@ -22,7 +22,6 @@ public class Oiseau extends Volatile {
 
 	}
 
-
 	public void info() {
 		// Etat de l'oiseau
 		System.out.println("je suis un " + this.etat);
@@ -30,48 +29,52 @@ public class Oiseau extends Volatile {
 
 	// constructeur
 	{
-	  etat = new Oeuf();
-    Random rand = new Random();
-    int x = rand.nextInt(100);
-    int y = 0;
-    //position = new Point(x, y);
-    etat.position = new Point(x, y);//position;
-    etat.vitesse = 0;
-    vitesse = 0;
-    calculerDureeDeVie();
-    estVivant = true;
-    dateNaissance = System.nanoTime();
-	}
-	void initUnivers (Univers UnUni)
-	{
-	  UnUni.addVolatile(this);
-	  etat.monUnivers = UnUni;
-    
-	}
-	public Oiseau(Univers unUni) {
-	  initUnivers(unUni);
-	  listeParents = new ArrayList<Volatile> ();
+		etat = new Oeuf();
+		Random rand = new Random();
+		int x = rand.nextInt(100);
+		int y = 0;
+		// position = new Point(x, y);
+		etat.position = new Point(x, y);// position;
+		etat.vitesse = 0;
+		vitesse = 0;
+		calculerDureeDeVie();
+		estVivant = true;
+		dateNaissance = System.nanoTime();
 	}
 
-	public Oiseau(Univers unUni , List<Volatile> parents) {
-	  initUnivers(unUni);
+	void initUnivers(Univers UnUni) {
+		UnUni.addVolatile(this);
+		etat.monUnivers = UnUni;
+
+	}
+
+	public Oiseau(Univers unUni) {
+		initUnivers(unUni);
+		listeParents = new ArrayList<Volatile>();
+	}
+
+	public Oiseau(Univers unUni, List<Volatile> parents) {
+		initUnivers(unUni);
 		listeParents = parents;
 	}
 
 	// Changement d'etat :
 
-	
 	public void eclore() {
-		etat=new Poussin(etat.position,etat.monUnivers);
-		
+		etat = new Poussin(etat.position, etat.monUnivers);
+
 	}
-		
+
+	public void puberte() {
+		this.etat = new Adulte(etat.position, etat.monUnivers);
+
+	}
 
 	public void evoluer() {
 		if (this.etat instanceof Oeuf) {
-			  eclore();
+			eclore();
 		} else if (this.etat instanceof Poussin) {
-			this.etat = new Adulte(etat.position,etat.monUnivers);
+			puberte();
 		}
 	}
 
@@ -105,8 +108,9 @@ public class Oiseau extends Volatile {
 	}
 
 	public Point getPosition() {
-    return etat.position;
-  }
+		return etat.position;
+	}
+
 	public Oiseau seReproduire(Oiseau autreparent) {
 		etat.seReproduire(null);
 		return null;
@@ -133,18 +137,16 @@ public class Oiseau extends Volatile {
 		this.sonSexe = sonSexe;
 	}
 
+	@Override
+	public void setUnivers(Univers univers) {
+		// a voir monUnivers = univers;
+		etat.monUnivers = univers;
 
-  @Override
-  public void setUnivers(Univers univers) {
-    // a voir monUnivers = univers;
-    etat.monUnivers = univers;
-    
-  }
+	}
 
-
-  @Override
-  public Univers getUnivers() {
-    return etat.monUnivers;
-  }
+	@Override
+	public Univers getUnivers() {
+		return etat.monUnivers;
+	}
 
 }
