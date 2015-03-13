@@ -7,6 +7,11 @@ import controle.Univers;
 
 public class Adulte extends Volatile {
 
+	@Override
+	public Point getPosition() {
+		
+		return position;
+	}
 	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
 		position = laOuLOiseauEtait;
 		vitesse = 2;

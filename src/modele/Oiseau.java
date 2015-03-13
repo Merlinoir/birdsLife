@@ -34,8 +34,8 @@ public class Oiseau extends Volatile {
 	etat = new Oeuf();
 	sonSexe = Sex.getRandomSex();
     Random rand = new Random();
-    int x = rand.nextInt(100);
-    int y = 0;
+    int x = rand.nextInt(300);
+    int y = 300;
     //position = new Point(x, y);
     etat.position = new Point(x, y);//position;
     etat.vitesse = 0;

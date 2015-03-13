@@ -14,6 +14,11 @@ public class Poussin extends Volatile {
 		return false;
 	}
 	
+	@Override
+	public Point getPosition() {
+		
+		return position;
+	}
   public Poussin (Point laOuLOiseauEtait, Univers lUnivertDeLOiseau){
      System.out.println("je cree un poussin");
      position = laOuLOiseauEtait;

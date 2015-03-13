@@ -1,6 +1,8 @@
 package view;
 
 import modele.*;
+import controle.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -78,37 +80,42 @@ public class AwtBirds {
         private ArrayList<Bird> birdsUp;
         public ArrayList<Point> allPoint;
         private Bird myBird;
+        Univers unUnivers = new Univers();
         public Birds() {
-        	allPoint = new ArrayList<Point>();
-            allPoint.add(new Point(10, 20)) ;
-        	allPoint.add(new Point(10, 40)) ;
-        	allPoint.add(new Point(10, 60)) ;
-        	allPoint.add(new Point(10, 80)) ;
-        	allPoint.add(new Point(10, 100)) ;
-        	allPoint.add(new Point(10, 120)) ;
-        	birdsUp = new ArrayList<Bird>(25);
-            myBird = new Bird(new Color(5,5,99));
-            for (int index = 0; index < 1; index++) {
-                birdsUp.add(new Bird(new Color(random(255), random(255), random(255))));
-            }
+//        	allPoint = new ArrayList<Point>();
+//            allPoint.add(new Point(10, 20)) ;
+//        	allPoint.add(new Point(10, 40)) ;
+//        	allPoint.add(new Point(10, 60)) ;
+//        	allPoint.add(new Point(10, 80)) ;
+//        	allPoint.add(new Point(10, 100)) ;
+//        	allPoint.add(new Point(10, 120)) ;
+//        	birdsUp = new ArrayList<Bird>(25);
+//            for (int index = 0; index < 1; index++) {
+//                birdsUp.add(new Bird(new Color(random(255), random(255), random(255))));
+//            }
+        	tempsLast = System.nanoTime();
         }
+        
+        private long tempsLast ;
         @Override
         protected void paintComponent(Graphics g) {
+        	
+        	
         	
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            for (Bird ball : birdsUp) {
-                ball.paint(g2d);
-            }
 
-            
-
-            for (Point unPoint : allPoint) {
-            	myBird.setLocation(new Point(unPoint));
+            long temps = System.nanoTime() - tempsLast;
+           double tempsEnSeconde = (double)temps / (double)1E9;
+           System.out.println(tempsEnSeconde);
+           int sizeListPoints = unUnivers.getAllPoint().size();
+           for (int j = 0 ; j < sizeListPoints; j++) {
+        	    myBird = new Bird(new Color(255, 255, 255));
+            	myBird.setLocation(unUnivers.getAllPoint().get(j));
             	myBird.size=new Dimension(10,10);
                 myBird.paint(g2d);
-                myBird.setSpeed(new Point(200, 200));
+                myBird.setSpeed(new Point(30, 30));
                 
             }
             g2d.dispose();
@@ -118,6 +125,8 @@ public class AwtBirds {
 //            myBird.paint(g2d);
 //            myBird.setSpeed(new Point(200, 200));
 //            g2d.dispose();
+            tempsLast = System.nanoTime();
+            unUnivers.passerTemps(tempsLast);
         }
 
         public ArrayList<Bird> getBirds() {

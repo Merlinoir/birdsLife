@@ -1,5 +1,7 @@
 package modele;
 
+import java.awt.Point;
+
 import controle.Univers;
 
 public class Oeuf extends Volatile {
@@ -35,5 +37,11 @@ public class Oeuf extends Volatile {
     // TODO Auto-generated method stub
     
   }
+
+@Override
+public Point getPosition() {
+	
+	return position;
+}
 
 }

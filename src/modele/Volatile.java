@@ -21,7 +21,7 @@ public abstract class Volatile {
 	List<Volatile> listeParents;
 	Point position;
 	long dateNaissance;
-	boolean estVivant;
+	boolean estVivant = true;
 	protected Univers monUnivers;
 	long vitesse;
 
@@ -32,8 +32,8 @@ public abstract class Volatile {
 		double ecartX;
 		double ecartY;
 		double distance;
-		ecartX = Math.pow((v.position.getX() - this.position.getX()), 2);
-		ecartY = Math.pow((v.position.getY() - this.position.getY()), 2);
+		ecartX = Math.pow((v.getPosition().getX() - this.getPosition().getX()), 2);
+		ecartY = Math.pow((v.getPosition().getY() - this.getPosition().getY()), 2);
 		distance = Math.sqrt(ecartX + ecartY);
 		// racine((x2-x1) au carré + (y2-y1) au carré)
 		return (distance <= ZONE_DE_REPRODUCTION);
@@ -174,7 +174,7 @@ public abstract class Volatile {
 	
 		ArrayList<Volatile> liste1 = this.aPourAncetres(niveau);
 		ArrayList<Volatile> liste2 = v.aPourAncetres(niveau);
-	return Collections.disjoint( liste1, liste2);
+	return Collections.disjoint(liste1, liste2);
 	}
 
 	public void kill() {
@@ -199,10 +199,7 @@ public abstract class Volatile {
 	
 	// Getter Setter
 	
-	public Point getPosition() {
-	  System.out.println("realy ? ");
-		return position;
-	}
+	abstract public Point getPosition();
 
 
 	public void setPosition(double i, double j) {
