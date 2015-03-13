@@ -1,6 +1,6 @@
 package view;
 
-
+import modele.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -101,9 +101,11 @@ public class AwtBirds {
             for (Bird ball : birdsUp) {
                 ball.paint(g2d);
             }
+
             
+
             for (Point unPoint : allPoint) {
-            	myBird.setLocation(unPoint);
+            	myBird.setLocation(new Point(unPoint));
             	myBird.size=new Dimension(10,10);
                 myBird.paint(g2d);
                 myBird.setSpeed(new Point(200, 200));
