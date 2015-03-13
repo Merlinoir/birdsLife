@@ -7,6 +7,8 @@ import java.util.Random;
 
 import org.hamcrest.core.IsInstanceOf;
 
+import controle.Univers;
+
 public class Oiseau extends Volatile {
 
 	public Volatile etat;
@@ -27,23 +29,32 @@ public class Oiseau extends Volatile {
 	}
 
 	// constructeur
-	public Oiseau() {
-		etat = new Oeuf();
-
-		Random rand = new Random();
-		int x = rand.nextInt(100);
-		int y = 0;
-		position = new Point(x, y);
-
-		vitesse = 0;
-		calculerDureeDeVie();
-		estVivant = true;
-		dateNaissance = System.nanoTime();
+	{
+	  etat = new Oeuf();
+    Random rand = new Random();
+    int x = rand.nextInt(100);
+    int y = 0;
+    //position = new Point(x, y);
+    etat.position = new Point(x, y);//position;
+    etat.vitesse = 0;
+    vitesse = 0;
+    calculerDureeDeVie();
+    estVivant = true;
+    dateNaissance = System.nanoTime();
+	}
+	void initUnivers (Univers UnUni)
+	{
+	  UnUni.addVolatile(this);
+	  etat.monUnivers = UnUni;
+    
+	}
+	public Oiseau(Univers unUni) {
+	  initUnivers(unUni);
+	  listeParents = new ArrayList<Volatile> ();
 	}
 
-	public Oiseau(List<Volatile> parents) {
-		etat = new Oeuf();
-		Point p = new Point((int) Math.random(), 0);
+	public Oiseau(Univers unUni , List<Volatile> parents) {
+	  initUnivers(unUni);
 		listeParents = parents;
 	}
 
@@ -51,16 +62,16 @@ public class Oiseau extends Volatile {
 
 	
 	public void eclore() {
-		etat=new Poussin(position,monUnivers);
+		etat=new Poussin(etat.position,etat.monUnivers);
 		
 	}
 		
 
 	public void evoluer() {
 		if (this.etat instanceof Oeuf) {
-			this.etat = new Poussin(position, monUnivers);
+			  eclore();
 		} else if (this.etat instanceof Poussin) {
-			this.etat = new Adulte(position, monUnivers);
+			this.etat = new Adulte(etat.position,etat.monUnivers);
 		}
 	}
 
@@ -93,6 +104,9 @@ public class Oiseau extends Volatile {
 		this.etat.position.setLocation(i, j);
 	}
 
+	public Point getPosition() {
+    return etat.position;
+  }
 	public Oiseau seReproduire(Oiseau autreparent) {
 		etat.seReproduire(null);
 		return null;
@@ -118,5 +132,19 @@ public class Oiseau extends Volatile {
 	public void setSonSexe(Sex sonSexe) {
 		this.sonSexe = sonSexe;
 	}
+
+
+  @Override
+  public void setUnivers(Univers univers) {
+    // a voir monUnivers = univers;
+    etat.monUnivers = univers;
+    
+  }
+
+
+  @Override
+  public Univers getUnivers() {
+    return etat.monUnivers;
+  }
 
 }

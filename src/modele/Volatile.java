@@ -93,7 +93,7 @@ public abstract class Volatile {
 			List<Volatile> parents = null ;
 			parents.add(this) ;
 			parents.add(v) ;
-			Oiseau egg = new Oiseau(parents) ;
+			Oiseau egg = new Oiseau(getUnivers(),parents) ;
 			return egg ;
 		}
 		else return null;
@@ -196,12 +196,11 @@ public abstract class Volatile {
 	
 	// Getter Setter
 	
-	public Point getLocation() {
+	public Point getPosition() {
+	  System.out.println("realy ? ");
 		return position;
 	}
 
-	public void getPosition() {
-	}
 
 	public void setPosition(double i, double j) {
 		this.position.setLocation(i, j);
@@ -239,14 +238,8 @@ public abstract class Volatile {
 		this.estVivant = estVivant;
 	}
 
-	public Univers getMonUnivers() {
-		return monUnivers;
-	}
-
-	public void setMonUnivers(Univers monUnivers) {
-		this.monUnivers = monUnivers;
-	}
-
+	
+	
 	public long getVitesse() {
 		return vitesse;
 	}
@@ -259,9 +252,8 @@ public abstract class Volatile {
 		this.position = position;
 	}
 
-	public void setUnivers(Univers univers) {
-		monUnivers = univers;
+	public abstract Univers getUnivers() ;
 
-	}
+	public abstract void setUnivers(Univers univers) ;
 
 }

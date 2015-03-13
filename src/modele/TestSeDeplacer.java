@@ -12,8 +12,8 @@ public class TestSeDeplacer {
   private Oiseau initialiseOiseau() throws InterruptedException {
     //creer un univers
     Univers monUnivers = new Univers ();
-    Oiseau cuicui1= new Oiseau();
-    monUnivers.addVolatile(cuicui1);
+    Oiseau cuicui1= new Oiseau(monUnivers);
+    //monUnivers.addVolatile(cuicui1);
     Thread.sleep(6000);
     cuicui1.vieillir();
     return cuicui1;
@@ -38,7 +38,7 @@ public class TestSeDeplacer {
     
 
     //je verifie si l'oiseau est là où il devrait etre
-    assertTrue(cuicui1.getLocation().equals(newPosition));
+    assertTrue(cuicui1.getPosition().equals(newPosition));
   }
 
   @Test
@@ -59,7 +59,7 @@ public class TestSeDeplacer {
 //    System.out.println(" la position de cuicui :" + cuicui2.getEtat().getPosition()); 
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui2.getLocation().equals(newPosition));
+    assertTrue(cuicui2.getPosition().equals(newPosition));
   }
   
   @Test
@@ -80,7 +80,7 @@ public class TestSeDeplacer {
 //    System.out.println(" la position de cuicui :" + cuicui2.getEtat().getPosition()); 
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui2.getLocation().equals(newPosition));
+    assertTrue(cuicui2.getPosition().equals(newPosition));
   }
   
   @Test
@@ -102,9 +102,12 @@ public class TestSeDeplacer {
 
     //l'oiseau devrait etre à la position attendue soit le max de la fenetre
 //    System.out.println(" la position de cuicui :" + cuicui3.getEtat().getPosition()); 
+    
+    //verif booleen
+    System.out.println( ((Poussin)cuicui3.etat).deplacementDroite);
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui3.getLocation().equals(newPosition));
+    assertTrue(cuicui3.getPosition().equals(newPosition));
   }
    
   

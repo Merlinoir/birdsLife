@@ -53,4 +53,16 @@ public class Poussin extends Volatile {
     // Le poussin ne se reproduit pas
   }
 
+  @Override
+  public Univers getUnivers() {
+    System.out.println("appel a un etat de getMonUnivers");
+    return monUnivers;
+  }
+
+  @Override
+  public void setUnivers(Univers univers) {
+    System.out.println("appel a un etat de setMonUnivers");
+    monUnivers = univers;
+  }
+
 }
