@@ -1,4 +1,7 @@
 package modele;
+
+import controle.Univers;
+
 public class Oeuf extends Volatile {
 	
 	@Override
@@ -18,6 +21,18 @@ public class Oeuf extends Volatile {
   
   public void seReproduire() {
     // L'oeuf ne se reproduit pas 
+    
+  }
+
+  @Override
+  public Univers getUnivers() {
+    System.out.println("appel a un etat de getMonUnivers");
+    return monUnivers;
+  }
+
+  @Override
+  public void setUnivers(Univers univers) {
+    // TODO Auto-generated method stub
     
   }
 

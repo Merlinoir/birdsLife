@@ -9,18 +9,19 @@ import controle.Univers;
 
 public class TestSeDeplacer {
 
-  private Oiseau initialiseOiseau() {
+  private Oiseau initialiseOiseau() throws InterruptedException {
     //creer un univers
     Univers monUnivers = new Univers ();
-    Oiseau cuicui1= new Oiseau();
-    monUnivers.addVolatile(cuicui1);
-    cuicui1.eclore();
+    Oiseau cuicui1= new Oiseau(monUnivers);
+    //monUnivers.addVolatile(cuicui1);
+    Thread.sleep(6000);
+    cuicui1.vieillir();
     return cuicui1;
   }
   
   @Test
   //Test pour un déplacement d'une seconde
-  public void testSeDeplacerUneSeconde() {
+  public void testSeDeplacerUneSeconde() throws InterruptedException {
     Oiseau cuicui1= initialiseOiseau();
     cuicui1.setPosition(1.0,0.0);
 
@@ -37,12 +38,12 @@ public class TestSeDeplacer {
     
 
     //je verifie si l'oiseau est là où il devrait etre
-    assertTrue(cuicui1.getLocation().equals(newPosition));
+    assertTrue(cuicui1.getPosition().equals(newPosition));
   }
 
   @Test
   //Test pour un déplacement à la limite droite
-  public void testSeDeplacerDroite() {
+  public void testSeDeplacerDroite() throws InterruptedException {
     Oiseau cuicui2= initialiseOiseau();
     cuicui2.setPosition(97.0,0.0);
 
@@ -58,12 +59,12 @@ public class TestSeDeplacer {
 //    System.out.println(" la position de cuicui :" + cuicui2.getEtat().getPosition()); 
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui2.getLocation().equals(newPosition));
+    assertTrue(cuicui2.getPosition().equals(newPosition));
   }
   
   @Test
   //Test pour un déplacement à la limite droite
-  public void testSeDeplacerPoussinAuMaxDeDroite() {
+  public void testSeDeplacerPoussinAuMaxDeDroite() throws InterruptedException {
     Oiseau cuicui2= initialiseOiseau();
     cuicui2.setPosition(100.0,0.0);
 
@@ -79,12 +80,12 @@ public class TestSeDeplacer {
 //    System.out.println(" la position de cuicui :" + cuicui2.getEtat().getPosition()); 
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui2.getLocation().equals(newPosition));
+    assertTrue(cuicui2.getPosition().equals(newPosition));
   }
   
   @Test
   //Test pour un déplacement à la limite gauche
-  public void testSeDeplacerGauche() {
+  public void testSeDeplacerGauche() throws InterruptedException {
     Oiseau cuicui3= initialiseOiseau();
     cuicui3.setPosition(5.0,0.0);
     
@@ -101,9 +102,12 @@ public class TestSeDeplacer {
 
     //l'oiseau devrait etre à la position attendue soit le max de la fenetre
 //    System.out.println(" la position de cuicui :" + cuicui3.getEtat().getPosition()); 
+    
+    //verif booleen
+    System.out.println( ((Poussin)cuicui3.etat).deplacementDroite);
 
     //Verifier si l'oiseau est là où il devrait etre
-    assertTrue(cuicui3.getLocation().equals(newPosition));
+    assertTrue(cuicui3.getPosition().equals(newPosition));
   }
    
   

@@ -18,7 +18,7 @@ public class Univers {
   public void addVolatile (Volatile vola)
   {
     laColonie.add(vola);
-    vola.setUnivers(this);
+    //vola.setUnivers(this);
   }
   
   
