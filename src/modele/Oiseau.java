@@ -28,18 +28,20 @@ public class Oiseau extends Volatile {
 	}
 
 	// constructeur
+
 	{
-		etat = new Oeuf();
-		Random rand = new Random();
-		int x = rand.nextInt(100);
-		int y = 0;
-		// position = new Point(x, y);
-		etat.position = new Point(x, y);// position;
-		etat.vitesse = 0;
-		vitesse = 0;
-		calculerDureeDeVie();
-		estVivant = true;
-		dateNaissance = System.nanoTime();
+	etat = new Oeuf();
+	sonSexe = Sex.getRandomSex();
+    Random rand = new Random();
+    int x = rand.nextInt(100);
+    int y = 0;
+    //position = new Point(x, y);
+    etat.position = new Point(x, y);//position;
+    etat.vitesse = 0;
+    vitesse = 0;
+    calculerDureeDeVie();
+    estVivant = true;
+    dateNaissance = System.nanoTime();
 	}
 
 	void initUnivers(Univers UnUni) {
@@ -59,7 +61,6 @@ public class Oiseau extends Volatile {
 	}
 
 	// Changement d'etat :
-
 	public void eclore() {
 		etat = new Poussin(etat.position, etat.monUnivers);
 
@@ -136,6 +137,14 @@ public class Oiseau extends Volatile {
 	public void setSonSexe(Sex sonSexe) {
 		this.sonSexe = sonSexe;
 	}
+	
+	public void setSonSexeMale(Sex sonSexe) {
+	sonSexe = Sex.Male;
+	}
+
+	public void setSonSexeFemelle(Sex sonSexe) {
+	sonSexe = Sex.Femelle;
+	}
 
 	@Override
 	public void setUnivers(Univers univers) {
@@ -148,5 +157,6 @@ public class Oiseau extends Volatile {
 	public Univers getUnivers() {
 		return etat.monUnivers;
 	}
+
 
 }
