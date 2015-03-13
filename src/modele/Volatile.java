@@ -48,6 +48,9 @@ public abstract class Volatile {
 		this.listeParents = listeParents;
 	}
 
+	/**
+	 * Affiche un message avec l'Etat actuel de l'oiseau.
+	 */
 	public void info() {
 	}
 
@@ -57,7 +60,7 @@ public abstract class Volatile {
 	
 	/**
 	 * @param v Volatile
-	 * @return retourne vrai si les deux oiseaux sont de sexe opposé
+	 * @return retourne vrai si les deux oiseaux sont de sexe opposés
 	 */
 	public boolean sexeOppose(Volatile v){
 	return (this.sonSexe != v.sonSexe) ;
@@ -82,12 +85,12 @@ public abstract class Volatile {
 		return true;
 		}
 
-
 	/**
 	 * Methode pour reproduction
 	 * @param autreParent
 	 * @return
 	 */
+	@SuppressWarnings("null")
 	public Oiseau seReproduire(Volatile v) {
 		if (reproductionPossible(v)) {
 			List<Volatile> parents = null ;
