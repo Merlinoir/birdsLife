@@ -34,7 +34,7 @@ public class Oiseau extends Volatile {
 		int x = rand.nextInt(100);
 		int y = 0;
 		position = new Point(x, y);
-
+		sonSexe = Sex.getRandomSex();
 		vitesse = 0;
 		calculerDureeDeVie();
 		estVivant = true;
@@ -44,12 +44,11 @@ public class Oiseau extends Volatile {
 	public Oiseau(List<Volatile> parents) {
 		etat = new Oeuf();
 		Point p = new Point((int) Math.random(), 0);
+		sonSexe = Sex.getRandomSex();
 		listeParents = parents;
 	}
 
 	// Changement d'etat :
-
-	
 	public void eclore() {
 		etat=new Poussin(position,monUnivers);
 		
@@ -118,5 +117,12 @@ public class Oiseau extends Volatile {
 	public void setSonSexe(Sex sonSexe) {
 		this.sonSexe = sonSexe;
 	}
+	
+	public void setSonSexeMale(Sex sonSexe) {
+	sonSexe = Sex.Male;
+	}
 
+	public void setSonSexeFemelle(Sex sonSexe) {
+	sonSexe = Sex.Femelle;
+	}
 }
