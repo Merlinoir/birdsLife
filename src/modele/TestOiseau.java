@@ -3,9 +3,12 @@ import static org.junit.Assert.*;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
+
+import controle.Univers;
 
 
 public class TestOiseau {
@@ -36,13 +39,14 @@ public class TestOiseau {
 		ArrayList<Volatile> listAncetresTest = new ArrayList<Volatile>() ;
 		
 		// Instancier les Oiseaux test :
-		Oiseau GdpereMontaiguP = new Oiseau() ;
-		Oiseau GdmereMontaiguP = new Oiseau() ;
-		Oiseau GdpereMontaiguM = new Oiseau() ;
-		Oiseau GdmereMontaiguM = new Oiseau() ;
-		Oiseau pereMontaigu = new Oiseau() ;
-		Oiseau mereMontaigu = new Oiseau() ;
-		Oiseau filsMontaigu = new Oiseau() ;
+		Univers monUnivers = new Univers ();
+		Oiseau GdpereMontaiguP = new Oiseau(monUnivers) ;
+		Oiseau GdmereMontaiguP = new Oiseau(monUnivers) ;
+		Oiseau GdpereMontaiguM = new Oiseau(monUnivers) ;
+		Oiseau GdmereMontaiguM = new Oiseau(monUnivers) ;
+		Oiseau pereMontaigu = new Oiseau(monUnivers) ;
+		Oiseau mereMontaigu = new Oiseau(monUnivers) ;
+		Oiseau filsMontaigu = new Oiseau(monUnivers) ;
 		filsMontaigu.getListeParents().add(pereMontaigu) ;
 		filsMontaigu.getListeParents().add(mereMontaigu) ;
 		pereMontaigu.getListeParents().add(GdpereMontaiguP) ;
@@ -51,19 +55,19 @@ public class TestOiseau {
 		mereMontaigu.getListeParents().add(GdmereMontaiguM) ;
 		
 		// Famille Capulet
-//		Oiseau GdpereCapuletP = new Oiseau() ;
-//		Oiseau GdmereCapuletP = new Oiseau() ;
-//		Oiseau GdpereCapuletM = new Oiseau() ;
-//		Oiseau GdmereCapuletM = new Oiseau() ;
-//		Oiseau pereCapulet = new Oiseau() ;
-//		Oiseau mereCapulet = new Oiseau() ;
-//		Oiseau filleCapulet = new Oiseau() ;
-//		filleCapulet.listeParents.add(pereCapulet) ;
-//		filleCapulet.listeParents.add(mereCapulet) ;
-//		pereCapulet.listeParents.add(GdpereCapuletP) ;
-//		pereCapulet.listeParents.add(GdmereCapuletP) ;
-//		mereCapulet.listeParents.add(GdpereCapuletM) ;
-//		mereCapulet.listeParents.add(GdmereCapuletM) ;
+		Oiseau GdpereCapuletP = new Oiseau(monUnivers) ;
+		Oiseau GdmereCapuletP = new Oiseau(monUnivers) ;
+		Oiseau GdpereCapuletM = new Oiseau(monUnivers) ;
+		Oiseau GdmereCapuletM = new Oiseau(monUnivers) ;
+		Oiseau pereCapulet = new Oiseau(monUnivers) ;
+		Oiseau mereCapulet = new Oiseau(monUnivers) ;
+		Oiseau filleCapulet = new Oiseau(monUnivers) ;
+		filleCapulet.listeParents.add(pereCapulet) ;
+		filleCapulet.listeParents.add(mereCapulet) ;
+		pereCapulet.listeParents.add(GdpereCapuletP) ;
+		pereCapulet.listeParents.add(GdmereCapuletP) ;
+		mereCapulet.listeParents.add(GdpereCapuletM) ;
+		mereCapulet.listeParents.add(GdmereCapuletM) ;
 		
 		// listAncetres.addAll(filsMontaigu.getListeParents());  // On ne met pas le fils lui meme
 		listAncetresTest.addAll(pereMontaigu.getListeParents());
@@ -73,14 +77,13 @@ public class TestOiseau {
 		listAncetresTest.addAll(GdmereMontaiguP.getListeParents());
 		listAncetresTest.addAll(GdpereMontaiguP.getListeParents());
 		
-		// utiliser ici la methode de la classe
-		ArrayList<Volatile> test = filsMontaigu.aPourAncetres(2) ;
+		// utiliser ici la methode de la classe pour la Famille Capulet
+		ArrayList<Volatile> test = filleCapulet.aPourAncetres(2) ;
 		
 		// Comparaison des deux resultats :
-		assertTrue ( listAncetresTest.containsAll(test) && test.containsAll(listAncetresTest) ) ;
+		assertTrue ( Collections.disjoint( listAncetresTest, test )) ;
 	}
 
-	
 	
 
 }

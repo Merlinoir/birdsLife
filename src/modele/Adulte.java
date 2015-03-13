@@ -6,14 +6,12 @@ import java.util.Random;
 import controle.Univers;
 
 public class Adulte extends Volatile {
-	
-	// Point de destination
-	Point pointFinal;
 
 	public Adulte(Point laOuLOiseauEtait, Univers lUnivertDeLOiseau) {
 		position = laOuLOiseauEtait;
 		vitesse = 2;
 		monUnivers = lUnivertDeLOiseau;
+		
 		// Point de destination
 		Random rand = new Random();
 		int x = rand.nextInt(monUnivers.MAX_UNIVERS_ABSCISSE);
@@ -31,8 +29,8 @@ public class Adulte extends Volatile {
 		System.out.println("je suis un adulte");
 	}
 
-	
-	public void seDeplacer(long tempsEnSeconde) {
+	@Override
+	public void seDeplacer(double tempsEnSeconde) {
 
 		int distance = (int) (tempsEnSeconde * vitesse);
 
@@ -52,8 +50,8 @@ public class Adulte extends Volatile {
 			double ratio = (distance / distanceTotale);
 
 			// Incrementation
-			double incX = ratio * (this.pointFinal.x - this.position.x);
-			double incY = ratio * (this.pointFinal.y - this.position.y);
+			double incX = this.position.x + (ratio * (this.pointFinal.x - this.position.x));
+			double incY = this.position.y + (ratio * (this.pointFinal.y - this.position.y));
 
 			this.position.setLocation(incX, incY);
 		}
@@ -75,5 +73,17 @@ public class Adulte extends Volatile {
 
 		return true;
 	}
+
+  @Override
+  public Univers getUnivers() {
+    System.out.println("appel a un etat de getMonUnivers");
+    return monUnivers;
+  }
+
+  @Override
+  public void setUnivers(Univers univers) {
+    // TODO Auto-generated method stub
+    
+  }
 
 }
